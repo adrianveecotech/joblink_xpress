@@ -63,18 +63,18 @@ class CustomConfigServiceProvider extends ServiceProvider
             $this->app['config']['services'] = [
                 'facebook' => [
                     'client_id' => $settings->facebook_app_id,
-                    'client_secret' => $settings->facebeek_app_secret,
-                    'redirect' => url('login/jobseeker/facebook/callback'),
+                    'client_secret' => $settings->facebook_app_secret,
+                    'redirect' => url('login/joblink-xpress/facebook/callback'),
                 ],
                 'twitter' => [
                     'client_id' => $settings->twitter_app_id,
                     'client_secret' => $settings->twitter_app_secret,
-                    'redirect' => url('login/jobseeker/twitter/callback'),
+                    'redirect' => url('login/joblink-xpress/twitter/callback'),
                 ],
                 'google' => [
                     'client_id' => $settings->google_app_id,
                     'client_secret' => $settings->google_app_secret,
-                    'redirect' => url('login/jobseeker/google/callback'),
+                    'redirect' => url('login/joblink-xpress/google/callback'),
                 ],
             ];
             $this->app['config']['paypal'] = [

@@ -55,7 +55,7 @@ use RegistersUsers;
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
-        $user->is_active = 0;
+        $user->is_active = 1;
         $user->verified = 0;
         $user->save();
         /*         * *********************** */

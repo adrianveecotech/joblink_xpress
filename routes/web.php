@@ -62,9 +62,9 @@ Route::get('company-email-verification/check/{token}', 'Company\Auth\RegisterCon
 
 // OAuth Routes
 
-Route::get('login/jobseeker/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/joblink-xpress/{provider}', 'Auth\LoginController@redirectToProvider');
 
-Route::get('login/jobseeker/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('login/joblink-xpress/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('login/employer/{provider}', 'Company\Auth\LoginController@redirectToProvider');
 

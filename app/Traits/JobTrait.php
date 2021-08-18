@@ -242,33 +242,33 @@ trait JobTrait
 
         return view('admin.job.add')
 
-                        ->with('companies', $companies)
+            ->with('companies', $companies)
 
-                        ->with('countries', $countries)
+            ->with('countries', $countries)
 
-                        ->with('currencies', array_unique($currencies))
+            ->with('currencies', array_unique($currencies))
 
-                        ->with('careerLevels', $careerLevels)
+            ->with('careerLevels', $careerLevels)
 
-                        ->with('functionalAreas', $functionalAreas)
+            ->with('functionalAreas', $functionalAreas)
 
-                        ->with('jobTypes', $jobTypes)
+            ->with('jobTypes', $jobTypes)
 
-                        ->with('jobShifts', $jobShifts)
+            ->with('jobShifts', $jobShifts)
 
-                        ->with('genders', $genders)
+            ->with('genders', $genders)
 
-                        ->with('jobExperiences', $jobExperiences)
+            ->with('jobExperiences', $jobExperiences)
 
-                        ->with('jobSkills', $jobSkills)
+            ->with('jobSkills', $jobSkills)
 
-                        ->with('jobSkillIds', $jobSkillIds)
+            ->with('jobSkillIds', $jobSkillIds)
 
-                        ->with('degreeLevels', $degreeLevels)
+            ->with('degreeLevels', $degreeLevels)
 
-                        ->with('salaryPeriods', $salaryPeriods);
+            ->with('salaryPeriods', $salaryPeriods);
 
-    }
+        }
 
 
 
@@ -352,35 +352,35 @@ trait JobTrait
 
         return view('admin.job.edit')
 
-                        ->with('companies', $companies)
+            ->with('companies', $companies)
 
-                        ->with('countries', $countries)
+            ->with('countries', $countries)
 
-                        ->with('currencies', array_unique($currencies))
+            ->with('currencies', array_unique($currencies))
 
-                        ->with('careerLevels', $careerLevels)
+            ->with('careerLevels', $careerLevels)
 
-                        ->with('functionalAreas', $functionalAreas)
+            ->with('functionalAreas', $functionalAreas)
 
-                        ->with('jobTypes', $jobTypes)
+            ->with('jobTypes', $jobTypes)
 
-                        ->with('jobShifts', $jobShifts)
+            ->with('jobShifts', $jobShifts)
 
-                        ->with('genders', $genders)
+            ->with('genders', $genders)
 
-                        ->with('jobExperiences', $jobExperiences)
+            ->with('jobExperiences', $jobExperiences)
 
-                        ->with('jobSkills', $jobSkills)
+            ->with('jobSkills', $jobSkills)
 
-                        ->with('jobSkillIds', $jobSkillIds)
+            ->with('jobSkillIds', $jobSkillIds)
 
-                        ->with('degreeLevels', $degreeLevels)
+            ->with('degreeLevels', $degreeLevels)
 
-                        ->with('salaryPeriods', $salaryPeriods)
+            ->with('salaryPeriods', $salaryPeriods)
 
-                        ->with('job', $job);
+            ->with('job', $job);
 
-    }
+        }
 
 
 
@@ -442,9 +442,9 @@ trait JobTrait
 
         $company = Auth::guard('company')->user();
 
-		
 
-		if ((bool)$company->is_active === false) {
+
+        if ((bool)$company->is_active === false) {
 
             flash(__('Your account is inactive contact site admin to activate it'))->error();
 
@@ -452,9 +452,9 @@ trait JobTrait
 
             exit;
 
-        }        
+        }
 
-		$countries = DataArrayHelper::langCountriesArray();
+        $countries = DataArrayHelper::langCountriesArray();
 
         $currencies = DataArrayHelper::currenciesArray();
 
@@ -482,31 +482,31 @@ trait JobTrait
 
         return view('job.add_edit_job')
 
-                        ->with('countries', $countries)
+            ->with('countries', $countries)
 
-                        ->with('currencies', array_unique($currencies))
+            ->with('currencies', array_unique($currencies))
 
-                        ->with('careerLevels', $careerLevels)
+            ->with('careerLevels', $careerLevels)
 
-                        ->with('functionalAreas', $functionalAreas)
+            ->with('functionalAreas', $functionalAreas)
 
-                        ->with('jobTypes', $jobTypes)
+            ->with('jobTypes', $jobTypes)
 
-                        ->with('jobShifts', $jobShifts)
+            ->with('jobShifts', $jobShifts)
 
-                        ->with('genders', $genders)
+            ->with('genders', $genders)
 
-                        ->with('jobExperiences', $jobExperiences)
+            ->with('jobExperiences', $jobExperiences)
 
-                        ->with('jobSkills', $jobSkills)
+            ->with('jobSkills', $jobSkills)
 
-                        ->with('jobSkillIds', $jobSkillIds)
+            ->with('jobSkillIds', $jobSkillIds)
 
-                        ->with('degreeLevels', $degreeLevels)
+            ->with('degreeLevels', $degreeLevels)
 
-                        ->with('salaryPeriods', $salaryPeriods);
+            ->with('salaryPeriods', $salaryPeriods);
 
-    }
+        }
 
 
 
@@ -523,6 +523,8 @@ trait JobTrait
         $job->company_id = $company->id;
 
         $job = $this->assignJobValues($job, $request);
+
+        $job->is_active = 2;
 
         $job->save();
 
@@ -602,33 +604,33 @@ trait JobTrait
 
         return view('job.add_edit_job')
 
-                        ->with('countries', $countries)
+            ->with('countries', $countries)
 
-                        ->with('currencies', array_unique($currencies))
+            ->with('currencies', array_unique($currencies))
 
-                        ->with('careerLevels', $careerLevels)
+            ->with('careerLevels', $careerLevels)
 
-                        ->with('functionalAreas', $functionalAreas)
+            ->with('functionalAreas', $functionalAreas)
 
-                        ->with('jobTypes', $jobTypes)
+            ->with('jobTypes', $jobTypes)
 
-                        ->with('jobShifts', $jobShifts)
+            ->with('jobShifts', $jobShifts)
 
-                        ->with('genders', $genders)
+            ->with('genders', $genders)
 
-                        ->with('jobExperiences', $jobExperiences)
+            ->with('jobExperiences', $jobExperiences)
 
-                        ->with('jobSkills', $jobSkills)
+            ->with('jobSkills', $jobSkills)
 
-                        ->with('jobSkillIds', $jobSkillIds)
+            ->with('jobSkillIds', $jobSkillIds)
 
-                        ->with('degreeLevels', $degreeLevels)
+            ->with('degreeLevels', $degreeLevels)
 
-                        ->with('salaryPeriods', $salaryPeriods)
+            ->with('salaryPeriods', $salaryPeriods)
 
-                        ->with('job', $job);
+            ->with('job', $job);
 
-    }
+        }
 
 
 
@@ -638,7 +640,7 @@ trait JobTrait
 
         $job = Job::findOrFail($id);
 
-		$job = $this->assignJobValues($job, $request);
+        $job = $this->assignJobValues($job, $request);
 
         /*         * ******************************* */
 
@@ -730,7 +732,7 @@ trait JobTrait
 
     }
 
-    
+
 
     public function isJobExpired()
 
