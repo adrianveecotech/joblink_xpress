@@ -60,7 +60,7 @@ class Company extends Authenticatable
 
     protected $fillable = [
 
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'is_active' , 'verified'
 
     ];
 

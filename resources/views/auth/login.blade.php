@@ -60,7 +60,7 @@
                         <div id="employer" class="formpanel tab-pane fade {{($c_or_e == 'employer')? 'active':''}}">
                             <div class="socialLogin">
                                         <h5>{{__('Login with Social')}}</h5>
-                                        <a href="{{ url('login/employer/facebook')}}" class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></a> <a href="{{ url('login/employer/twitter')}}" class="tw"><i class="fa fa-twitter" aria-hidden="true"></i></a> </div>
+                                        <a href="{{ url('login/employer/google')}}" class="tw"><i class="fa fa-google" aria-hidden="true"></i></a> </div>
                             <form class="form-horizontal" method="POST" action="{{ route('company.login') }}">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="candidate_or_employer" value="employer" />

@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password',  'first_name', 'middle_name', 'last_name',  'provider', 'provider_id', 'is_active', 'verified'
     ];
     protected $dates = ['created_at', 'updated_at', 'date_of_birth', 'package_start_date', 'package_end_date'];
 
@@ -202,14 +202,14 @@ class User extends Authenticatable
         $image = (!empty($image)) ? $image : 'no-no-image.gif';
         return \ImgUploader::print_image("user_images/$image", $width, $height, '/admin_assets/no-image.png', $this->getName());
     }
-	
-	public function printUserCoverImage($width = 0, $height = 0)
+
+    public function printUserCoverImage($width = 0, $height = 0)
     {
         $cover_image = (string) $this->cover_image;
         $cover_image = (!empty($cover_image)) ? $cover_image : 'no-no-image.gif';
         return \ImgUploader::print_image("user_images/$cover_image", $width, $height, '/admin_assets/no-cover.jpg', $this->name);
     }
-	
+
     public function getName()
     {
         $html = '';
@@ -389,7 +389,6 @@ class User extends Authenticatable
     {
 
         return CompanyMessage::where('seeker_id', '=', $this->id)->where('status', '=', 'unviewed')->where('type', '=', 'message')->count();
-
     }
 
     public function countMessages($id)
@@ -397,6 +396,5 @@ class User extends Authenticatable
     {
 
         return CompanyMessage::where('seeker_id', '=', $this->id)->where('company_id', '=', $id)->where('status', '=', 'unviewed')->where('type', '=', 'message')->count();
-
     }
 }
