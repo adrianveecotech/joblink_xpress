@@ -72,16 +72,23 @@ Table Of Index
 
 *************************************************/
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800|Open+Sans:400,400i,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Open+Sans:100,200,300,400,400i,500,600,700,800,900&display=swap');
 /* CSS Reset */
 
+@font-face {
+    font-family: 'Gilroy Medium';
+    src: url('public/fonts/Gilroy-Medium.ttf');
+}
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	font-family: 'Gilroy Medium';
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	color : #0a2351;
 }
 /* HTML5 display-role reset for older browsers */
 
@@ -92,6 +99,7 @@ body {
 	line-height: 1;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
+	color : #0a2351;
 }
 ol, ul {
 	list-style: none;
@@ -157,7 +165,6 @@ select {
 /*Section Title*/
 
 .titleTop {
-	text-align: center;
 	margin-bottom: 10px;
 }
 .titleTop .subtitle {
@@ -169,7 +176,8 @@ select {
 .titleTop h3 {
 	font-size: 40px;
 	font-weight: 600;
-	color: #000;
+	color: #0a2351;
+	text-align: center;
 }
 .titleTop h4 {
 	font-size: 24px;
@@ -177,9 +185,35 @@ select {
 	color: #000;
 	margin-bottom: 30px;
 }
-.titleTop h3 span {
-	color: #5e2dfa;
-	font-weight: 300;
+.titleWithLine h3 {
+	font-size: 40px;
+	font-weight: 600;
+	color: #000;
+	overflow: hidden;
+}
+.titleWithLine h3 span {
+	color: #d32222;
+}
+  
+.titleWithLine h3:before,
+.titleWithLine h3:after {
+	background-color: #d32222;
+	content: "";
+	display: inline-block;
+	height: 3px;
+	position: relative;
+	vertical-align: middle;
+	width: 50%;
+}
+  
+.titleWithLine h3:before {
+	right: 0.5em;
+	margin-left: -50%;
+}
+
+.titleWithLine h3:after {
+	left: 0.5em;
+	margin-right: -50%;
 }
 /************************************************
 
@@ -437,7 +471,7 @@ h6 {
 
 
 .header {
-	padding: 0;
+	padding: 0 80px;
 }
 .header .col-md-5 {
 	padding-right: 0;
@@ -467,17 +501,20 @@ h6 {
 }
 .navbar-nav>li>a {
 	font-weight: 600;
+	color : #ffb72f;
 	padding: 16px 0;
 	border-bottom: 2px solid #fff;
 }
-.navbar-expand-lg .navbar-nav .nav-link{padding: 16px 0;}
+.navbar-expand-lg .navbar-nav .nav-link{padding: 16px 0; color : #0a2351}
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
 	background: none;
 }
-.navbar-nav>li>a:hover, .navbar-nav>li:hover>a, .navbar-nav>li.active>a {
-	border-bottom-color: #5e2dfa;
+ .navbar-nav>li.active>a {
+	border-bottom-color: #0a2351;
+	font-weight: 800;
 }
+
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
 	background-color: #fff;
 }
@@ -513,11 +550,22 @@ h6 {
 	padding: 0;
 }
 .navbar-expand-lg .navbar-nav .nav-link.register {
-	background: #5e2dfa;
-	color: #fff;
+	background: #98c1d9;
+	color: #0a2351;
 	padding:10px 18px;
 	border-radius: 40px;
 	margin-top: 8px;
+}
+.navbar-expand-lg .navbar-nav .nav-item.register {
+	padding: 0px;
+}
+.navbar-expand-lg .navbar-nav .nav-link.signin {
+	background: #ffffff;
+	color: #0a2351;
+	padding:10px 18px;
+	border-radius: 40px;
+	margin-top: 8px;
+	border: 2px solid #98c1d9;
 }
 .navbar-nav li.jobseeker a {
 	background: #666;
@@ -561,7 +609,6 @@ h6 {
 .searchwrap {
 	background: url(../images/search-bg.jpg) no-repeat top;
 	background-size: cover;
-	background-attachment: fixed;
 	padding: 150px 0;
 }
 .searchwrap h3 {
@@ -570,7 +617,10 @@ h6 {
 	color: #000;font-weight: 700;
 }
 .searchwrap h3 span {
-	display: block;
+	display: flex;
+    margin-left: 500px;
+	margin-top : 10px;
+	font-size: 42px;
 }
 .searchbar {
 	margin: 0;
@@ -583,7 +633,11 @@ h6 {
     -ms-transition: background 0.5s ease;
     -o-transition: background 0.5s ease;
     transition: background 0.5s ease;
-	
+	margin-left: 800px;
+}
+
+.srchbox .col-6 {
+	margin-left: -15px;
 }
 
 h3.seekertxt{text-align: left; color: #000; font-size: 48px; font-weight: 700;  text-shadow: 5px 5px 10px rgba(0,0,0,0.2);}
@@ -591,28 +645,60 @@ h3.seekertxt span{color: #009c46;}
 
 
 
-.srchbox label{display: block; color: #000; margin-bottom: 5px;font-size: 1rem; font-weight: 700;}
-.additional_fields{margin-top: 15px}
+.srchbox label{display: block; color: #0a2351; margin-bottom: 5px;font-size: 17px; font-weight: 700;}
+.additional_fields{margin-top: 50px}
 
 .seekersrch{max-width: 700px; background: #fff; padding: 15px; box-shadow:0px 20px 40px 5px rgb(0 0 0 / 20%); border-radius: 5px;}
 
-.additional_fields .form-control{margin-bottom: 15px; }
+.additional_fields .form-control{margin-bottom: 20px; }
+
+
 .searchbar .form-control {
 	height: 50px;
-	padding: 13px 15px;
-	border: none;
+	padding: 23px 25px;
+	border: 1px solid #bdbdbd;
+	border-radius : 30px;
 	font-size: 18px;
-	box-shadow:0px 20px 40px 5px rgb(0 0 0 / 20%);
+	margin-left: -20px;
 }
+.searchbar .form-control::-webkit-input-placeholder {
+    font-weight: lighter;
+    color:#AFB2B3;
+}
+.searchbar .form-control::-moz-placeholder {
+    font-weight: lighter;
+    color:#AFB2B3;
+}
+.searchbar .form-control::-ms-input-placeholder {
+    font-weight: lighter;
+    color:#AFB2B3;
+}
+
+.searchbar select.form-control, .searchblack select.form-control::-webkit-input-placeholder {
+    font-weight: lighter;
+    color:#AFB2B3;
+}
+.searchbar select.form-control, .searchblack select.form-control::-moz-placeholder {
+    font-weight: lighter;
+    color:#AFB2B3;
+}
+.searchbar select.form-control, .searchblack select.form-control::-ms-input-placeholder {
+    font-weight: lighter;
+    color:#AFB2B3;
+}
+
 .searchbar .btn {
-	background: #17d27c;
+	background: #3d5a80;
 	color: #fff;
 	border: none;
 	font-size: 16px;
 	text-transform: uppercase;
 	font-weight: 700;
-	padding: 14px 20px;
-	width: 100%;
+	padding: 17px 40px;
+	border-radius: 30px;
+	float: right;
+	margin-right: -15px;
+	letter-spacing: 2px;
 }
 
 .seekersrch .form-control{box-shadow: none; border: 1px solid #eee;}
@@ -708,8 +794,13 @@ h3.seekertxt span{color: #009c46;}
 }
 .searchbar select.form-control, .searchblack select.form-control {
 	padding: 12px 15px 13px 15px;
-	line-height: 46px;
+	line-height: 40px;
 }
+
+.searchbar .w-95 select.form-control {
+	width: 95%;
+}
+
 .searchblack .searchbar{margin-top: 0;}
 
 
@@ -1344,7 +1435,13 @@ background:#adb5bd
            == How it works css==
 
 *************************************************/
-.howitwrap{background: #fff; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.1); padding: 40px; margin-top: -80px; margin-bottom: 50px;}
+.containerHowitwrap {
+	background:url(../images/how-it-works.png);
+	background-size:cover;
+	padding : 65px;
+}
+
+.howitwrap{background: rgb(255,255,255,0.8); border-radius: 25px;  padding: 40px; }
 
 
 .howlist {
@@ -1358,6 +1455,16 @@ background:#adb5bd
 	text-align: center;
 	margin-bottom: 15px;
 	display: inline-block;
+	max-width: 15%;
+}
+.howlist li .createAnAccount {
+	content:url(../images/create-an-account.png);
+}
+.howlist li .searchDesiredJob {
+	content:url(../images/search-desired-job.png);
+}
+.howlist li .sendYourResume {
+	content:url(../images/send-your-resume.png);
 }
 .howlist li:nth-child(2) .iconcircle {
 	border-color: #83ec0f;
@@ -1370,15 +1477,16 @@ background:#adb5bd
 	color: #17d27c;
 }
 .howlist li h4 {
-	font-size: 24px;
-	font-weight: 300;
-	color: #000;
-	margin-bottom: 10px;
+	font-size: 16px;
+	font-weight: 700;
+	color: #d32222;
+	margin-bottom: 20px;
 }
 .howlist li p {
 	font-size: 14px;
 	line-height: 24px;
-	color: #555;
+	color: #757575;
+	font-weight: 300;
 }
 /************************************************
 
@@ -1441,51 +1549,48 @@ background:#adb5bd
 	background: #f6f6f6;
 }
 .srchbx {
-	border: 1px solid #eee;
 	margin-bottom: 30px;
-	box-shadow: 0 0 30px rgba(0,0,0,0.1);
+	
 }
 
 .srchbx .srchint {
 	padding: 30px;
+	padding-bottom: 60px;
 	background: #fff;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	border: 1px solid #bdbdbd;
 }
 .catelist li a {
 	display: block;
 	margin: 10px 0;
 	position: relative;
 	padding-left: 15px;
-	color: #000;
+	color: #0a2351;
 	font-weight: 600
 }
 .catelist li a:hover {
 	color: #5e2dfa;
 }
-.catelist li a:before {
-	position: absolute;
-	left: 0;
-	content: '\f0da';
-	font-family: 'FontAwesome';
-	font-weight: 400;
-}
+
 .catelist li span {
-	color: #6aca00;
+	color: #1A73E8;
 }
 
 
 /***************************
 		Searh Tabs
 ***************************/
-.tabswrap{border-bottom:3px solid #5e2dfa;}
+.tabswrap{border-bottom:2px solid #98c1d9;}
 .tabswrap .nav-tabs{border-bottom: none; float: right;}
 .tabswrap .nav-tabs>li{margin-bottom:0;}
-.tabswrap .nav-tabs>li>a{background:none; border-radius:0; font-size:16px; font-weight:400; color:#666; padding:15px 30px; border: none;}
+.tabswrap .nav-tabs>li>a{background:none; border-top-left-radius : 20px ; border-top-right-radius :20px ; font-size:20px; font-weight:400; color:#666; padding:27px; border: none;}
 
-.tabswrap .nav-tabs>li>a.active, .tabswrap .nav-tabs>li>a.active:focus{background:#5e2dfa; color:#fff; border-color:#5e2dfa; border-radius: 5px 5px 0 0; font-weight:700;}
+.tabswrap .nav-tabs>li>a.active, .tabswrap .nav-tabs>li>a.active:focus{background:#98c1d9; color:#0a2351; border-color:#98c1d9; font-weight:600;}
 .tabswrap .nav-tabs>li.last{float:right;}
 .tabswrap .nav-tabs>li.last a{background:none; font-size:14px; padding:0; margin:0; border:none; margin-top:7px;}
 .tabswrap .nav-tabs>li.last a:hover{border:none; color:#5e2dfa;}
-
+.tabswrap h3 {font-weight: 700; padding : 15px}
 
 
 .largebanner {
@@ -1532,19 +1637,21 @@ background:#adb5bd
 }
 .jobslist li .jobint {
 	background: #fff;
-	padding: 15px;
+	padding: 7px 20px 25px 0px;
 	transition: 0.4s ease-in-out;
 	-webkit-transition: 0.4s ease-in-out;
 	-ms-transition: 0.4s ease-in-out;
 	-moz-transition: 0.4s ease-in-out;
 	min-height: 113px;
 	border-radius: 10px;
-	box-shadow: 0 0 20px rgba(0,0,0,0.1);
-	border-bottom: 2px solid #fff;
+	border: 1px solid #bdbdbd;
+}
+.jobslist li .jobdesc {
+	padding: 20px 0px 0px 40px;
 }
 .jobslist li .jobint:hover {
-	box-shadow: 0 5px 30px rgba(0,0,0,0.1);
-	border-color: #5e2dfa
+	background-color: #f6f6f6;
+	border-color: #f6f6f6;
 }
 .jobslist li .col-md-7, .jobslist li .col-md-9 {
 	padding-left: 0;
@@ -1554,7 +1661,7 @@ background:#adb5bd
 }
 .jobslist li h4 a {
 	font-size: 18px;
-	color: #000;
+	color: #0a2351;
 	font-weight: 700;
 }
 .jobslist li h4 a:hover {
@@ -1562,48 +1669,55 @@ background:#adb5bd
 }
 .jobslist li .company {
 	color: #999;
-	padding: 7px 0
 }
 .jobslist li .company a {
-	color: #5e2dfa;
+	color: #1a73e8;
+	font-size: 12px ;
+	font-weight: 600;
 }
-.jobslist li .jobloc {
-	color: #000;
-}
-.jobslist li .jobloc span {
-	color: #999;
-}
+
 .jobslist li .applybtn {
 	background: #fff;
 	display: inline-block;
-	color: #5e2dfa;
+	color: #0a2351;
 	font-weight: 600;
-	padding: 9px 13px;
-	margin-top: 20px;
-	border: 1px solid #5e2dfa;
+	padding: 9px 20px;
+	position: absolute;
+	bottom: 0px;
+	border: 1px solid #98c1d9;
 	border-radius: 45px;
 }
 .jobslist li .applybtn:hover {
-	background: #5e2dfa;
-	color: #fff;
+	background: #98c1d9;
+	color: #0a2351;
+	border-color: #98c1d9;
 	text-decoration: none;
 }
 
+.jobslist .jobint .jobdesc .logoCompany>img {
+	max-width: 80%;
+}
 
+.sectionLatestJob{
+	background: #f6f6f6;
+}
 .newjbox.row{margin: 0 -1px;}
-.newjbox.row .col-md-4{padding: 0 1px;}
+.newjbox.row .col-md-4{padding: 15px 15px}
 .newjbox li {
 	margin-top: 2px;
 }
-.newjbox li .jobint{box-shadow:none; border-radius: 0; background:#f9fafb; border-bottom-color: #F2F9FF}
-.newjbox.row{margin-top: 20px;}
-.newjbox.row li h4 a{font-weight: 400;}
+.newjbox li .jobint{box-shadow:none; border-radius: 20px; background:#fff;  padding-top : 13px; border: none}
+.newjbox.row{margin-top: 35px;}
+.newjbox.row li h4 a{font-weight: 700; font-size: 17px; color :#0a2351}
 
+.newjbox .jobint .row.container	{
+	padding: 15px 0px 0px 30px;
+}
 
-
-
-
-
+.newjbox li .jobint:hover
+{
+	background: #fff;
+}
 
 .viewallbtn {
 	text-align: center;
@@ -1611,63 +1725,91 @@ background:#adb5bd
 }
 .viewallbtn a {
 	display: inline-block;
-	background: #5e2dfa;
-	color: #fff;
+	background: #98c1d9;
+	color: #0a2351;
 	font-size: 18px;
-	font-weight: 600;
+	font-weight: 700;
 	padding: 15px 30px;
-	border-radius: 5px;
+	border-radius: 25px;
 }
 .viewallbtn a:hover {
-	background: #333;
 	text-decoration: none;
 }
+
+.jobslist li .company-location{
+	margin-top: 15px;
+	padding : 0;
+	padding-left: 15px;
+}
+.jobslist li .jobloc {
+	color: #999;
+	font-size: 12px ;
+	font-weight: 600;
+	padding-left: 5px;
+}
+
+.jobslist li .company-location>img {
+	height: 13px;
+}
+
+
 .partTime {
-	background: #f8a60c;
-	color: #fff;
+	background: #fff7bb;
+	color: #c99512;
 	font-size: 13px;
 	display: inline-block;
 	padding: 4px 6px;
 	border-radius: 3px;
 }
 .fulltime {
-	background: #6ACA00;
-	color: #fff;
-	font-size: 13px;
+	background: #bef4ca;
+	color: #20bc50;
+	font-size: 14px;
 	display: inline-block;
-	padding: 4px 6px;
-	border-radius: 3px;
+	padding: 9px 15px;
+	border-top-right-radius: 40px;
+	border-bottom-right-radius: 40px;
+	font-weight: 600;
 }
 label.fulltime[title="Part Time"] {
-	background: #f8a60c;
+	background: #fff7bb;
+	color: #c99512;
 }
 label.fulltime[title="Freelance"] {
-	background: #ff0000;
+	background: #efbfc6;
+	color: #4f0b25;
 }
 label.fulltime[title="Contract"] {
-	background: #0C86F8;
+	background: #bac8f4;
+	color: #0d397f;
 }
 label.fulltime[title="Internship"] {
-	background: #9B54F4;
+	background: #efbaf4;
+	color: #3b0b4f;
 }
 label.fulltime[title="First Shift (Day)"] {
-	background: #AFCB59;
+	background: #f9d3c0;
+	color: #a84807;
 }
 label.partTime[title="First Shift (Day)"] {
-	background: #AFCB59;
+	background: #d3bfef;
+	color: #2e0b49;
 }
 label.partTime[title="Second Shift (Afternoon)"] {
-	background: #688CD5;
+	background: #f9d895;
+	color: #825000;
 }
 label.partTime[title="Third Shift (Night)"] {
-	background: #EF7D7D;
+	background: #a0d9f2;
+	color: #183d7f;
 }
 label.partTime[title="Rotating"] {
-	background: #B09EEB;
+	background: #ead9ce;
+	color: #6d4e48;
 }
 .freelance {
-	background: #ff0000;
-	color: #fff;
+	background: #efbfc6;
+	color: #4f0b25;
 	font-size: 13px;
 	display: inline-block;
 	padding: 4px 6px;
@@ -1707,28 +1849,56 @@ label.partTime[title="Rotating"] {
 /************************************************
            == Loginbox css==
 *************************************************/
-.userloginbox{background:url(../images/login-bg.jpg) no-repeat center; background-attachment: fixed; background-size: cover; padding:40px 0 120px 0; text-align: center;}
-.userloginbox .viewallbtn{margin-top:30px;}
-.userloginbox .viewallbtn a{background: #17d27c;}
-.userloginbox .viewallbtn a:hover{background: #333;}
+.userloginbox{background:#98c1d9 no-repeat center; background-attachment: fixed; background-size: cover; padding:40px 0 70px 0; text-align: center;position: relative;}
+.userloginbox .viewallbtn a{background: #3d5a80; color: #fff; }
+.userloginbox .viewallbtn a:hover{text-decoration: none;}
 .userloginbox p{max-width: 770px; margin: 0 auto;}
+.userloginbox .viewallbtn {
+	position: absolute;
+	bottom : -20px; 
+	left: 0; 
+	right: 0; 
+	margin-left: auto; 
+	margin-right: auto;  }
 
+.emploginbox{background:url(../images/post-a-job.png) no-repeat center; background-size: cover; padding:50px 0; text-align: center;}
+.emploginbox .viewallbtn a{background: #3d5a80;text-align: left; color: white;}
+.emploginbox .viewallbtn a:hover{text-decoration: none;}
+.emploginbox p{
+	max-width: 50%;
+    text-align: left;
+	color: #757575;
+}
 
-.emploginbox{background:url(../images/login-bg2.jpg) no-repeat center; background-attachment: fixed; background-size: cover; padding:50px 0; text-align: center;}
-.emploginbox .viewallbtn{margin-top:30px;}
-.emploginbox .viewallbtn a{background: #17d27c;}
-.emploginbox .viewallbtn a:hover{background: #fff; color: #17d27c}
-.emploginbox p{max-width: 770px; margin: 0 auto;}
-
-
+.emploginbox .titleTop h3{
+	color: #0a2351;
+	font-weight: 700;
+	text-align: left;
+}
+.emploginbox .titleTop h4 {
+	color: #0a2351;
+	font-weight: 700;
+	letter-spacing: normal;
+	text-align: left;
+}
 
 
 /************************************************
            == Testimonials css==
 *************************************************/
-.testimonialwrap{background:url(../images/testimonials-bg.jpg) no-repeat center; background-attachment: fixed; background-size: cover; text-align: center;}
-.testimonialwrap .titleTop h3{color: #fff;}
-
+.testimonialwrap{background:url(../images/testimonials-bg.png) no-repeat center;  background-size: cover; text-align: center;}
+.testimonialwrap .titleTop h3{
+	color: #0a2351;
+	font-weight: 700;
+	text-align: left;
+}
+.testimonialwrap .titleTop .subtitle {
+	font-size:  28px;
+	color: #0a2351;
+	font-weight: 700;
+	letter-spacing: normal;
+	text-align: left;
+}
 
 .testimonialsList {
 	list-style: none;
@@ -1736,9 +1906,10 @@ label.partTime[title="Rotating"] {
 .testimonialsList li {
 	text-align: center;
 	max-width: 770px;
-	margin: 10px auto;
+	padding: 40px 40px;
 }
-.testimonialsList li .ratinguser{color: #EBA102; font-size: 24px; margin-top: 20px;}
+.testimonialsList li .ratinguser{color: #EBA102; font-size: 20px; margin-top: 15px; margin-bottom: 3px; text-align: left;
+}
 .testimonialsList li .testimg {
 	width: 80px;
 	height: 80px;
@@ -1747,25 +1918,50 @@ label.partTime[title="Rotating"] {
 	margin: auto
 }
 .testimonialsList li .clientname {
-	font-size: 24px;
+	font-size: 17px;
 	font-weight: 700;
 	padding:15px 0 5px 0;
-	color: #fff;
+	color: #0a2351;
 	font-family: 'Montserrat', sans-serif;
+	text-align: left;
 }
 .testimonialsList li p {
-	font-style: italic;
 	line-height: 24px;
-	letter-spacing: 2px;
-	font-size: 16px;
-	color: #fff;
+	font-size: 12px;
+	color: #757575;
+	text-align: left;
 }
 .testimonialsList li .clientinfo {
 	font-family: 'Montserrat', sans-serif;
-	font-weight: 600;
-	color: #17d27c;
+	font-weight: 500;
+	font-size: 12px;
+	color: #1a73e8;
 	margin-bottom: 15px;
+	text-align: left;
 }
+.testimonialsList .item {
+	width: 50%;
+	background: white;
+    border-radius: 20px;
+	margin-top: 15px;
+}
+
+.testimonialsList .fa{
+	color: #c99512;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+	background: white;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+	background: #0a2351;
+}
+
+.owl-theme .owl-dots {
+	width: 50%;
+}
+
 /************************************************
 
            == App Box css==
@@ -2196,8 +2392,20 @@ label.partTime[title="Rotating"] {
 }
 
 .container {
-    max-width: 1170px;
+    max-width: 1470px;
 }
+
+@media (min-width: 1200px) {
+	.container {
+	  max-width: 1140px;
+	}
+  }
+  
+@media (min-width: 1600px) {
+	.container {
+	  max-width: 1470px;
+	}
+  }
 
 .usercoverimg{position: relative; min-height: 240px; background: #333;}
 .usercoverimg:after{background: rgb(0,0,0);
@@ -3498,20 +3706,22 @@ ul.orderlist li:before {
 .blogList {
 	list-style: none;
 }
-.blogList li .bloginner{
+.bloginner{
 	background: #fff;
-	padding: 20px;
 	margin-bottom: 30px;
-	border-radius: 5px;
-}
-.blogList li .bloginner:hover {
-	box-shadow: 0 0 10px rgba(0,0,0,0.1);
-	border-color: #5e2dfa;
+	border-radius: 20px;
+	border : 1px solid #bdbdbd;
+	height: 100%;
 }
 .postimg {
 	position: relative;
 	display: inline-block;
 }
+
+.postimg img {
+	border-radius: 20px 20px 0px 0px;
+}
+
 .postimg .date {
 	width: 60px;
 	height: 60px;
@@ -3544,12 +3754,24 @@ ul.orderlist li:before {
 .post-header h4 a:hover {
 	color: #333;
 }
+.blogContent {
+	padding: 5px 30px 30px 30px;
+	height: 230px;
+}
 .postmeta {
 	margin: 15px 0 20px 0;
 	line-height: 24px;
+	font-size: 13px;
 }
 .postmeta span, .postmeta a {
-	color: #5e2dfa;
+	color: #1a73e8;
+	font-size: 13px;
+}
+.blogContent p, .blogContent h2, .blogContent h3 {
+	color: #757575;
+	font-size: 14px;
+	text-decoration: none;
+	font-weight: 400;
 }
 .blogList p, .blogGrid li p {
 	line-height: 24px;
@@ -3567,6 +3789,12 @@ ul.orderlist li:before {
 	text-decoration: none;
 	color: #00b1f1;
 }
+.bloginner .readMore>a {
+	color: #d32222;
+	font-weight: 600;
+
+}
+
 /* =======================
 
 		Blog Grid
@@ -4172,38 +4400,51 @@ blockquote:after {
 *************************************************/
 
 .subscribe {
-	padding: 30px 0;
-	background-color: #17d27c;
+	padding: 65px 0;
+	background: url(../images/newsletter-bg.png) no-repeat;
+	background-size: cover;
+}
+
+.subscribe .col-lg-5{
+	padding : 20px 0;
 }
 .subscribe h6 {
 	font-size: 30px;
-	color: #fff;
+	color: #0a2351;
 	margin-bottom: 5px;
+	letter-spacing: 3px;
+	font-weight: 700;
+	margin-left: 100px;
+	text-align: center;
 }
 .subscribe p {
-	color: #fff;
+	color: #0a2351;
+	font-size: 17px;
+	font-weight: 700;
+	margin-bottom: 10px;
 }
 
 .subscribe .form-control {
 	height: auto;
-	padding: 10px 13px;
+	padding: 12px 23px;
 	font-size: 14px;
-	border: none;
-	border-radius: 5px;
-	margin-right: 1px;
-	border-right: 1px solid #ddd;
+	border: 1.5px solid #bdbdbd;
+	border-radius: 25px !important; 
+	margin-right: 15px;
+	margin-left: -20px;
+	
 }
 .subscribe .btn {
-	background: #333;
+	background: #d32222;
 	padding: 10px 20px;
 	color: #fff;
-	border-color: #333;
 	text-transform: uppercase;
 	font-weight: 600;
-	border-radius:5px;
+	letter-spacing: 2px;
+	border-radius:25px !important; 
 	width: 100%;
 }
-#subscribe_newsletter_form{margin-top: 8px;}
+#subscribe_newsletter_form{margin-top: 5px;}
 
 
 
@@ -4216,11 +4457,11 @@ blockquote:after {
 *************************************************/
 
 .footerWrap {
-	background: #18212e;
-	padding: 50px 0;
+	background: #3d5a80;
+	padding: 65px 65px;
 }
 .footerWrap h5 {
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: bold;
 	color: #fff;
 	margin-bottom: 15px;
@@ -4233,15 +4474,15 @@ blockquote:after {
 	margin-bottom: 15px;
 }
 
-.footerWrap .address{margin-bottom: 20px; padding-top: 8px; color: #fff; position: relative; padding-left: 30px;line-height: 20px;}
-.footerWrap .address:before{position: absolute; left: 0; content: '\f041'; font-family:'FontAwesome'; font-size: 18px;}
+.footerWrap .address{margin-bottom: 20px; padding-top: 8px; color: #fff; position: relative; padding-left: 30px;line-height: 20px; font-size: 12px; font-weight: 100;}
+.footerWrap .address:before{position: absolute; left: 0; content: '\f041'; font-family:'FontAwesome'; font-size: 14px;}
 
 .footerWrap .email{margin-bottom: 20px; color: #fff; position: relative; padding-left: 30px;}
-.footerWrap .email:before{position: absolute; left: 0; content: '\f003'; font-family:'FontAwesome'; font-size: 18px;}
+.footerWrap .email:before{position: absolute; left: 0; content: '\f003'; font-family:'FontAwesome'; font-size: 14px;}
 
-.footerWrap .email a, .footerWrap .phone a{color: #fff;}
-.footerWrap .phone{margin-bottom: 20px; color: #fff; font-size: 18px; font-weight: 700; position: relative; padding-left: 30px;}
-.footerWrap .phone:before{position: absolute; left: 0; content: '\f095'; font-family:'FontAwesome'; font-size: 18px;}
+.footerWrap .email a, .footerWrap .phone a{color: #fff; font-size: 12px;font-weight: 100;}
+.footerWrap .phone{margin-bottom: 20px; color: #fff; font-size: 18px;  position: relative; padding-left: 30px; padding-top: 4px;}
+.footerWrap .phone:before{position: absolute; left: 0; content: '\f095'; font-family:'FontAwesome'; font-size: 14px;}
 
 
 .social {
@@ -4258,6 +4499,12 @@ blockquote:after {
 }
 .sidebar .social a {
 	color: #444;
+}
+
+.fa-facebook-square, .fa-google-plus-square, .fa-pinterest-square,.fa-twitter-square, .fa-instagram, .fa-linkedin-square, .fa-youtube-square, .fa-tumblr-square, .fa-flickr-square {
+	color: #fff;
+	font-size: 19px;
+	margin-left:4px;
 }
 /*Articles*/
 
@@ -4304,22 +4551,19 @@ blockquote:after {
 }
 .footerWrap .quicklinks li a {
 	display: block;
-	color: #ccc;
-	padding: 8px 0;
-	font-size: 14px;
+	color: #fff;
+	padding: 8px 15px;
+	font-size: 12px;
+	font-weight: 100;
 }
-.footerWrap .quicklinks li a:before {
-	content: '\f0da';
-	font-family: 'FontAwesome';
-	margin-right: 7px;
-}
+
 .footerWrap .quicklinks li a:hover {
-	color: #5e2dfa;
 	text-decoration: none;
+	font-weight: bold;
 }
 .copyright {
 	padding: 10px 0;
-	color: #777;
+	background: #0a2351;
 }
 .copyright ul li {
 	display: inline;
@@ -4335,8 +4579,11 @@ blockquote:after {
 }
 .paylogos{text-align: right;}
 .bttxt {
-	color: #888;
+	color: #fff;
 	line-height: 24px;
+	font-size: 13px;
+	text-align: center;
+	font-weight: 100;
 }
 /*copyright*/
 

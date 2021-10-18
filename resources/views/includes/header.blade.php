@@ -27,6 +27,7 @@
                             @foreach($show_in_top_menu as $top_menu) @php $cmsContent = App\CmsContent::getContentBySlug($top_menu->page_slug); @endphp
                             <li class="nav-item {{ Request::url() == route('cms', $top_menu->page_slug) ? 'active' : '' }}"><a href="{{ route('cms', $top_menu->page_slug) }}" class="nav-link">{{ $cmsContent->page_title }}</a> </li>
                             @endforeach
+							<li class="nav-item "><a href="#" class="nav-link">{{__('About Us')}}</a> </li>
 							<li class="nav-item {{ Request::url() == route('blogs') ? 'active' : '' }}"><a href="{{ route('blogs') }}" class="nav-link">{{__('Blog')}}</a> </li>
                             <li class="nav-item {{ Request::url() == route('contact.us') ? 'active' : '' }}"><a href="{{ route('contact.us') }}" class="nav-link">{{__('Contact us')}}</a> </li>
                             @if(Auth::check())
@@ -57,8 +58,8 @@
                                 </ul>
                             </li>
                             @endif @if(!Auth::user() && !Auth::guard('company')->user())
-                            <li class="nav-item"><a href="{{route('login')}}" class="nav-link">{{__('Sign in')}}</a> </li>
-							<li class="nav-item"><a href="{{route('register')}}" class="nav-link register">{{__('Register')}}</a> </li>                            
+                            <li class="nav-item"><a href="{{route('login')}}" class="nav-link signin">{{__('Sign in')}}</a> </li>
+							<li class="nav-item register"><a href="{{route('register')}}" class="nav-link register">{{__('Register')}}</a> </li>                            
                             @endif
                             <!-- <li class="dropdown userbtn"><a href="{{url('/')}}"><img src="{{asset('/')}}images/lang.png" alt="" class="userimg" /></a>
                                 <ul class="dropdown-menu">

@@ -20,6 +20,8 @@ if (!isset($seo)) {
     <link href="{{asset('/')}}js/revolution-slider/css/settings.css" rel="stylesheet">
     <!-- Owl carousel -->
     <link href="{{asset('/')}}css/owl.carousel.css" rel="stylesheet">
+    <link href="{{asset('/')}}css/owl.theme.default.css" rel="stylesheet">
+    <link href="{{asset('/')}}css/owl.theme.default.min.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="{{asset('/')}}css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->

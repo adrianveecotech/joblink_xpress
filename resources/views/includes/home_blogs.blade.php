@@ -1,9 +1,8 @@
 <div class="section">
     <div class="container"> 
         <!-- title start -->
-        <div class="titleTop">
-            <div class="subtitle">{{__('Here You Can See')}}</div>
-            <h3>{{__('Latest')}} <span>{{__('Blogs')}}</span></h3>
+        <div class="titleTop titleWithLine">
+            <h3>{{__('LATEST')}} <span>{{__('BLOGS')}}</span></h3>
         </div>
         <!-- title end -->
 
@@ -33,14 +32,17 @@
                                         alt="{{$blog->heading}}">
 									@endif
 								</div>
-
+                                <div class="blogContent">
                                 <div class="post-header">
                                     <h4><a href="{{route('blog-detail',$blog->slug)}}">{{$blog->heading}}</a></h4>
                                     <div class="postmeta">Category : {!!implode(', ',$cate_array)!!}
                                     </div>
                                 </div>
                                 <p>{!! \Illuminate\Support\Str::limit($blog->content, $limit = 150, $end = '...') !!}</p>
-
+                                <div class="readMore text-right">
+                                    <a href="{{route('blog-detail',$blog->slug)}}">{{__('Read More')}}</a>
+                                </div>
+                            </div>
                             </div>
                         </li>
 

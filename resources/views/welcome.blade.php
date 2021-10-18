@@ -6,9 +6,6 @@
 <!-- Search start -->
 @include('includes.search')
 <!-- Search End --> 
-<!-- Top Employers start -->
-@include('includes.top_employers')
-<!-- Top Employers ends --> 
 <!-- Popular Searches start -->
 @include('includes.popular_searches')
 <!-- Popular Searches ends --> 
@@ -27,9 +24,6 @@
 <!-- Testimonials start -->
 @include('includes.testimonials')
 <!-- Testimonials End -->
-<!-- Video start -->
-@include('includes.video')
-<!-- Video end --> 
 <!-- Login box start -->
 @include('includes.employer_login_text')
 <!-- Login box ends --> 

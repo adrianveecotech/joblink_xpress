@@ -3,7 +3,7 @@
         <div class="topsearchwrap">
 			<div class="tabswrap">
 				<div class="row">
-					<div class="col-md-4"><h3>{{__('Browse Jobs By')}}</h3></div>
+					<div class="col-md-4"><h3>{{__('Browse jobs by')}}</h3></div>
 					<div class="col-md-8">
 						<ul class="nav nav-tabs" id="myTab" role="tablist">
 						  <li class="nav-item"><a data-toggle="tab" href="#byfunctional" class="nav-link active" aria-expanded="true">{{__('Functional Area')}}</a></li>

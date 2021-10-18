@@ -3,19 +3,19 @@
    
     <div class="row">
 		
-		<div class="col-lg-4">
+		<div class="col-lg-5">
 		
 		 <h6>{{__('Newsletter')}}</h6> 
-    <p>{{__('Subscribe to our newsletter and stay updated.')}}</p>	
+    
 		
 		</div>
 		
-      <div class="col-lg-8">
-      <div id="alert_messages"></div>       
+      <div class="col-lg-7">
+      <div id="alert_messages"></div>     
+      <p>{{__('Subscribe to our newsletter and stay updated.')}}</p>	
        <form method="post" action="{{ route('subscribe.newsletter')}}" name="subscribe_newsletter_form" id="subscribe_newsletter_form">
       {{ csrf_field() }}
 		  
-		   
 		   
 		  <div class="input-group">
 		  <input type="text" class="form-control" placeholder="{{__('Name')}}" name="name" id="name" required="required">

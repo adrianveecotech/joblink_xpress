@@ -33,6 +33,7 @@
                         <li class="col-lg-6">
                             <div class="bloginner">
                                 <div class="postimg">{{$blog->printBlogImage()}}</div>
+                                <div class="blogContent">
 
                                 <div class="post-header">
                                     <h4><a href="{{route('blog-detail',$blog->slug)}}">{{$blog->heading}}</a></h4>
@@ -41,6 +42,7 @@
                                 </div>
                                 <p>{!! \Illuminate\Support\Str::limit($blog->content, $limit = 150, $end = '...') !!}</p>
 
+                            </div>
                             </div>
                         </li>
 
