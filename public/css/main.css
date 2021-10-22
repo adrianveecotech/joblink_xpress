@@ -72,16 +72,12 @@ Table Of Index
 
 *************************************************/
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Open+Sans:100,200,300,400,400i,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 /* CSS Reset */
 
-@font-face {
-    font-family: 'Gilroy Medium';
-    src: url('public/fonts/Gilroy-Medium.ttf');
-}
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-	font-family: 'Gilroy Medium';
+	font-family: 'Roboto';
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -97,7 +93,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 body {
 	line-height: 1;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto';
 	font-size: 14px;
 	color : #0a2351;
 }
@@ -116,7 +112,7 @@ table {
 	border-spacing: 0;
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto';
 	margin-bottom: 10px;
 	font-weight: 600;
 }
@@ -1406,7 +1402,7 @@ background:#adb5bd
 	font-weight: 700;
 	padding: 15px;
 	text-transform: none !important;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto';
 }
 .sliderpara {
 	color: #fff;
@@ -1426,7 +1422,7 @@ background:#adb5bd
 	text-transform: capitalize !important;
 	text-align: left;
 	background: #5e2dfa;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto';
 	border-radius: 5px;
 }
 /************************************************
@@ -1921,7 +1917,7 @@ label.partTime[title="Rotating"] {
 	font-weight: 700;
 	padding:15px 0 5px 0;
 	color: #0a2351;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto';
 	text-align: left;
 }
 .testimonialsList li p {
@@ -1931,7 +1927,7 @@ label.partTime[title="Rotating"] {
 	text-align: left;
 }
 .testimonialsList li .clientinfo {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto';
 	font-weight: 500;
 	font-size: 12px;
 	color: #1a73e8;
