@@ -4742,6 +4742,9 @@ body {
 	height: 200px;
 	margin: 0 auto;
 }
+.navbar-expand-lg .navbar-nav .nav-item.register {
+    padding: 5px 15px 0px 15px;
+}
 /*Search*/
 
 .searchwrap {
@@ -4871,6 +4874,9 @@ Large Mobile Screen
 }
 
 @media screen and (max-width: 767px) {
+.navbar-expand-lg .navbar-nav .nav-item.register {
+	padding: 0 10px;
+}
 .jobslist .jobint .jobdesc .logoCompany>img {
 	max-width: 30%;
 	width: 30%;
