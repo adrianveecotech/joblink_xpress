@@ -22,7 +22,7 @@
                 <input type="hidden" name="company_id" value="{{$company->id}}">
                 <textarea class="form-control" name="message" placeholder="Type Your Message here.."></textarea>
                 <div class="input-group-prepend"> <button type="submit" class="input-group-text"
-                        id="inputGroupPrepend3"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button> </div>
+                        id="inputGroupPrepend3"><i class="fa fa-paper-plane-o" style="color:white" aria-hidden="true"></i></button> </div>
             </div>
         </div>
 

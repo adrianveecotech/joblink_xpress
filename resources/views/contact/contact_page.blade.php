@@ -19,24 +19,25 @@
                 <!-- Contact Info -->
                 <div class="contact-now">
 				<div class="row"> 
-                    <div class="col-lg-4 column">
+                    <!-- <div class="col-lg-4 column">
                         <div class="contact"> <span><i class="fa fa-home"></i></span>
                             <div class="information"> <strong>{{__('Address')}}:</strong>
                                 <p>{{ $siteSetting->site_street_address }}</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Contact Info -->
-                    <div class="col-lg-4 column">
+                    <div class="col-lg-6 column">
                         <div class="contact"> <span><i class="fa fa-envelope"></i></span>
                             <div class="information"> <strong>{{__('Email Address')}}:</strong>
                                 <p><a href="mailto:{{ $siteSetting->mail_to_address }}">{{ $siteSetting->mail_to_address }}</a></p>
+                                <p>&nbsp;</p>
                             </div>
                         </div>
                     </div>
                     <!-- Contact Info -->
-                    <div class="col-lg-4 column">
-                        <div class="contact"> <span><i class="fa fa-phone"></i></span>
+                    <div class="col-lg-6 column">
+                        <div class="contact"> <span><i class="fa fa-whatsapp"></i></span>
                             <div class="information"> <strong>{{__('Phone')}}:</strong>
                                 <p><a href="tel:{{ $siteSetting->site_phone_primary }}">{{ $siteSetting->site_phone_primary }}</a></p>
                                 <p><a href="tel:{{ $siteSetting->site_phone_secondary }}">{{ $siteSetting->site_phone_secondary }}</a></p>
@@ -46,14 +47,14 @@
                     <!-- Contact Info --> 
                 </div>
 					<div class="row"> 
-                <div class="col-lg-4 column"> 
+                <!-- <div class="col-lg-4 column">  -->
                     <!-- Google Map -->
-                    <div class="googlemap">
+                    <!-- <div class="googlemap">
                    {!! $siteSetting->site_google_map !!}
                     </div>
-                </div>
+                </div> -->
                 <!-- Contact form -->
-                <div class="col-lg-8 column">
+                <div class="col-lg-12 column">
                     <div class="contact-form">
                         <div id="message"></div>
                         <form method="post" action="{{ route('contact.us')}}" name="contactform" id="contactform">

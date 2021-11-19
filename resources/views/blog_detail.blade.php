@@ -33,14 +33,13 @@
 
                                 <div class="postimg">{{$blog->printBlogImage()}}</div>
 
-
-                                <div class="post-header">
-                                    <h2>{{$blog->heading}}</h2>
-                                    <div class="postmeta">Category : {!!implode(', ',$cate_array)!!}</div>
+                                <div class="blog-content-container">
+                                    <div class="post-header">
+                                        <h2>{{$blog->heading}}</h2>
+                                        <div class="postmeta">Category : {!!implode(', ',$cate_array)!!}</div>
+                                    </div>
+                                    <p>{!! $blog->content !!}</p>
                                 </div>
-                                <p>{!! $blog->content !!}</p>
-
-
                             </div>
                         </li>
 

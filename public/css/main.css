@@ -211,6 +211,10 @@ select {
 	left: 0.5em;
 	margin-right: -50%;
 }
+
+.fa-whatsapp {
+	color: green;
+}
 /************************************************
 
            ==Tyography css==
@@ -637,15 +641,12 @@ h6 {
 }
 
 h3.seekertxt{text-align: left; color: #000; font-size: 48px; font-weight: 700;  text-shadow: 5px 5px 10px rgba(0,0,0,0.2);}
-h3.seekertxt span{color: #009c46;}
-
-
+h3.seekertxt span{color: #009c46;margin-left: 0px;}
 
 .srchbox label{display: block; color: #0a2351; margin-bottom: 5px;font-size: 17px; font-weight: 700;}
 .additional_fields{margin-top: 50px}
 
-.seekersrch{max-width: 700px; background: #fff; padding: 15px; box-shadow:0px 20px 40px 5px rgb(0 0 0 / 20%); border-radius: 5px;}
-
+.seekersrch{max-width: 700px; background: #fff; padding: 15px; box-shadow:0px 20px 40px 5px rgb(0 0 0 / 20%); border-radius: 5px;margin-left: 0px;}
 .additional_fields .form-control{margin-bottom: 20px; }
 
 
@@ -696,8 +697,8 @@ h3.seekertxt span{color: #009c46;}
 	letter-spacing: 2px;
 }
 
-.seekersrch .form-control{box-shadow: none; border: 1px solid #eee;}
-.seekersrch .btn{padding: 13px 20px;}
+.seekersrch .form-control{box-shadow: none; border: 1px solid #eee;margin-left: 0;border-radius: 0;}
+.seekersrch .btn{padding: 13px 20px;border-radius: 0;}
 
 .getstarted {
 	text-align: center;
@@ -1298,9 +1299,11 @@ background:#adb5bd
 	width: 100%;
 	position:relative
 }
-.chat-form .input-group-prepend{    position: absolute;
-    top: 7px;
-    right: 6px;
+.chat-form .input-group-prepend{   
+	position: absolute;
+    top: 1px;
+    right: 2px;
+	height: 98%;
 }
 .chat-form .input-group-prepend .input-group-text {
     -webkit-appearance: none;
@@ -1681,6 +1684,7 @@ background:#adb5bd
 	bottom: 0px;
 	border: 1px solid #98c1d9;
 	border-radius: 45px;
+	text-align: center;
 }
 .jobslist li .applybtn:hover {
 	background: #98c1d9;
@@ -1706,7 +1710,7 @@ background:#adb5bd
 .newjbox.row li h4 a{font-weight: 700; font-size: 17px; color :#0a2351}
 
 .newjbox .jobint .row.container	{
-	padding: 15px 0px 0px 30px;
+	padding: 30px 0px 0px 30px;
 }
 
 .newjbox li .jobint:hover
@@ -2390,15 +2394,21 @@ label.partTime[title="Rotating"] {
     max-width: 1470px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1600px) {
+	.container {
+	  max-width: 1470px;
+	}
+  }
+
+@media (max-width: 1200px) {
 	.container {
 	  max-width: 1140px;
 	}
   }
   
-@media (min-width: 1600px) {
+@media (max-width: 992px) {
 	.container {
-	  max-width: 1470px;
+	  max-width: 960px;
 	}
   }
 
@@ -3790,6 +3800,10 @@ ul.orderlist li:before {
 
 }
 
+.blogWraper .blogList .bloginner .blog-content-container {
+	padding : 50px 60px;
+}
+
 /* =======================
 
 		Blog Grid
@@ -4593,8 +4607,22 @@ blockquote:after {
 	Large Screen
 
 *******************/
+@media screen and (max-width: 1600px) {
+.jobslist li .jobint{
+	padding-right: 40px;
+}
 
-@media screen and (max-width: 1199px) {
+.srchbox {
+	margin-left: 800px;
+}
+}
+@media screen and (max-width: 1200px) {
+.srchbox {
+	margin-left: 700px;
+}
+.searchwrap h3 span {
+	font-size: 35px;
+}
 .main-plan .plan-price2 {
 	margin-left: 0px;
 	font-size: 44px;
@@ -4648,6 +4676,7 @@ blockquote:after {
 }
 .jobslist li .applybtn {
 	margin-top: 15px;
+	font-size: 12px;
 }
 .pageSearch a.btn {
 	margin-bottom: 15px
@@ -4660,7 +4689,22 @@ blockquote:after {
 
 *******************/
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 992px) {
+.header {
+	padding : 0
+}
+.searchwrap h3 {
+	font-size: 33px;
+	text-align: center;
+}
+.searchwrap h3 span{
+	font-size: 33px;
+	text-align: center;
+	display: block;
+}
+.srchbox {
+	margin-left: 600px;
+}
 body {
 	font-size: 16px;
 }
@@ -4671,7 +4715,7 @@ body {
 .navbar-header {
 	float: right;
 	display: block;
-	margin-top: 5px;
+	margin-top: 16px;
 }
 .navbar-toggle {
 	background: #ccc;
@@ -4701,10 +4745,13 @@ body {
 /*Search*/
 
 .searchwrap {
-	padding: 40px 0;
+	padding: 70px 0;
 }
 .searchbar {
-	padding: 20px 5px 5px 5px;
+	padding: 0;
+}
+.seekersrch{
+	margin: 0 auto;
 }
 .searchbar .btn {
 	width: 100%;
@@ -4743,7 +4790,7 @@ ul.orderlist li {
 	margin-top: 20px;
 }
 .postimg {
-	margin-top: 15px;
+	margin-top: 0;
 }
 .about-wraper, .textrow {
 	padding: 50px 0;
@@ -4766,11 +4813,42 @@ ul.orderlist li {
 	
 }
 
+@media screen and (max-width: 910px) {
+.srchbox {
+	margin-left: 500px;
+}
+.searchwrap h3 span{
+	font-size: 25px;
+	margin-left: 400px;
+}
+}
 /*******************
 
 Large Mobile Screen
 
 *******************/
+
+@media screen and (max-width: 850px) {
+.searchwrap h3 span {
+	margin-left: 0;
+	font-size: 32px;
+}
+.row {
+	margin : 0
+}
+.searchbar{
+	padding: 0 80px;
+}
+.searchwrap {
+	padding-bottom: 100px;
+}
+.srchbox{
+	margin : 0;
+}
+.searchbar .form-control{
+	margin-left: 0;
+}
+}
 
 @media screen and (max-width: 768px) {
 .topsearchwrap h5 {
@@ -4793,6 +4871,36 @@ Large Mobile Screen
 }
 
 @media screen and (max-width: 767px) {
+.jobslist .jobint .jobdesc .logoCompany>img {
+	max-width: 30%;
+	width: 30%;
+}
+.jobslist li .applybtn{
+	position: relative
+}
+.jobslist li .company-location{
+	justify-content: center;
+}
+.fulltime {
+	margin-left: 50px;
+	border-radius: 40px;
+}
+.jobint .fulltime {
+	margin-top: 10px;
+	margin-bottom: -5px;
+}
+.tabswrap .nav-tabs>li>a {
+	padding : 20px;
+}
+
+.tabswrap .nav-tabs>li>a.active{
+	font-size: 14px;
+}
+
+.tabswrap .nav-tabs>li>a {
+	font-size: 14px;
+}
+
 
 .navbar-nav li.postjob, .navbar-nav li.jobseeker {
 	margin-bottom: 10px;
@@ -4867,14 +4975,61 @@ Large Mobile Screen
 	margin-left: 0;
 }
 }
-
 /*******************
 
 	Mobiles Screen
 
 *******************/
+@media screen and (max-width: 575px) {
+.jobint img {
+	max-width: 30%;
+}
 
+.newjbox .jobint .row.container {
+	padding : 0
+}
+.jobslist li .jobint {
+	padding-right: 0;
+}
+.jobslist li .jobdesc {
+	padding : 0
+}
+.fulltime {
+	margin-left: 0px;
+}
+
+.jobint .fulltime
+{
+	margin-left: 0;
+	margin-bottom: 8px;
+}
+.testimonialsList .item  {
+	width: 100%;
+}
+.owl-theme .owl-dots {
+	width: 100%;
+}
+.emploginbox p {
+	width: 100%;
+	max-width: 100%;
+}
+.footerWrap {
+	padding: 30px 30px;
+}
+.tabswrap .nav-tabs>li>a {
+	padding : 15px;
+}
+.containerHowitwrap {
+	padding : 60px 35px 50px 35px;
+}
+}
 @media screen and (max-width: 560px) {
+.section {
+	overflow:  visible;
+}
+.seekersrch .form-control{
+	width: 100%;
+}
 .jobButtons a {
 	display: block;
 	margin-right: 0;
@@ -4882,6 +5037,22 @@ Large Mobile Screen
 }
 .searchwrap h3 {
 	font-size: 24px;
+}
+.searchwrap h3 span{
+	font-size: 32px;
+	margin-left: 0;
+}
+.srchbox {
+    margin-left: 0;
+}
+.row {
+	margin : 0
+}
+.searchbar .form-control{
+	margin-left: 0;
+}
+.searchbar {
+    padding: 0 30px;
 }
 .searchbar .input-group{display: block;}
 .searchbar .btn{margin: 15px 0 0 0}
