@@ -25,6 +25,7 @@ use App\JobType;
 use App\JobShift;
 use App\JobTitle;
 use App\Company;
+use App\FaqCategory;
 use App\MaritalStatus;
 use App\OwnershipType;
 use App\SalaryPeriod;
@@ -484,6 +485,12 @@ class DataArrayHelper
         if ((int) count($array) === 0) {
             $array = self::defaultSlidersArray();
         }
+        return $array;
+    }
+
+    public static function faqCategoryArray()
+    {
+        $array = FaqCategory::select('faqs_category.id', 'faqs_category.name')->pluck('faqs_category.name', 'faqs_category.id')->toArray();
         return $array;
     }
 

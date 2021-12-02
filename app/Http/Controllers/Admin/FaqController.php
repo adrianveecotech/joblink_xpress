@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use DataTables;
 use App\Faq;
+use App\FaqCategory;
 use App\Helpers\MiscHelper;
 use App\Helpers\DataArrayHelper;
 use App\Language;
@@ -46,7 +47,8 @@ class FaqController extends Controller
     public function createFaq()
     {
         $languages = DataArrayHelper::languagesNativeCodeArray();
-        return view('admin.faq.add')->with('languages', $languages);
+        $faq_categories = DataArrayHelper::faqCategoryArray();
+        return view('admin.faq.add')->with('languages', $languages)->with('faq_categories',$faq_categories);
     }
 
     public function storeFaq(FaqFormRequest $request)
@@ -55,6 +57,7 @@ class FaqController extends Controller
         $faq->faq_question = $request->input('faq_question');
         $faq->faq_answer = $request->input('faq_answer');
         $faq->lang = $request->input('lang');
+        $faq->faq_category_id = $request->faq_category;
         $faq->save();
         /*         * ************************************ */
         $faq->sort_order = $faq->id;
@@ -66,9 +69,11 @@ class FaqController extends Controller
     public function editFaq($id)
     {
         $languages = DataArrayHelper::languagesNativeCodeArray();
+        $faq_categories = DataArrayHelper::faqCategoryArray();
         $faq = Faq::findOrFail($id);
         return view('admin.faq.edit')
                         ->with('languages', $languages)
+                        ->with('faq_categories', $faq_categories)
                         ->with('faq', $faq);
     }
 
@@ -103,11 +108,12 @@ class FaqController extends Controller
                             'faqs.faq_question',
                             'faqs.faq_answer',
                             'faqs.sort_order',
+                            'faqs_category.name',
                             'faqs.lang',
                             'faqs.created_at',
                             'faqs.updated_at'
                         ]
-        );
+        )->join('faqs_category','faqs.faq_category_id','faqs_category.id');
         return Datatables::of($faqs)
                         ->filter(function ($query) use ($request) {
                             if ($request->has('faq_question') && !empty($request->faq_question)) {
@@ -117,7 +123,10 @@ class FaqController extends Controller
                                 $query->where('faqs.lang', 'like', "%{$request->get('lang')}%");
                             }
                             if ($request->has('faq_answer') && !empty($request->faq_answer)) {
-                                $query->where('faqs.faq_question', 'like', "%{$request->get('faq_answer')}%");
+                                $query->where('faqs.faq_answer', 'like', "%{$request->get('faq_answer')}%");
+                            }
+                            if ($request->has('name') && !empty($request->name)) {
+                                $query->where('faqs_category.name', 'like', "%{$request->get('name')}%");
                             }
                         })
                         ->addColumn('faq_answer', function ($faqs) {

@@ -12,17 +12,25 @@
         <!--Question-->
         <div class="faqs">
             <div class="panel-group" id="accordion">
-                <h3>&nbsp;</h3>
                 @if(isset($faqs) && count($faqs))
+                @foreach($faq_categories as $header)
+                <h5 class="mt-5">{{$header->name}}</h5>  
                 @foreach($faqs as $faq)
+                @if($faq->faq_category_id == $header->id)
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse{{ $faq->id }}">{!! $faq->faq_question !!}</a> </h4>
                     </div>
-                    <div id="collapse{{ $faq->id }}" class="panel-collapse collapse">
-                        <div class="panel-body">{!! $faq->faq_answer !!}</div>
+                    <div id="collapse{{ $faq->id }}" class="panel-collapse collapse ml-2">
+                        <div class="panel-body">{!! nl2br(e($faq->faq_answer)) !!}</div>
+                        @if(isset($faq->video_url))
+                        <iframe width="560" height="315" src="{{$faq->video_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        @endif
                     </div>
+                    
                 </div>
+                @endif
+                @endforeach
                 @endforeach
                 @endif
             </div>

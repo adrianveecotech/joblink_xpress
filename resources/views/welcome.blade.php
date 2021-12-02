@@ -28,7 +28,6 @@
 @include('includes.employer_login_text')
 <!-- Login box ends --> 
 <!-- Testimonials start -->
-@include('includes.home_blogs')
 <!-- Testimonials End -->
 <!-- Subscribe start -->
 @include('includes.subscribe')

@@ -24,6 +24,11 @@ $queryString = MiscHelper::getLangQueryStr();
         {!! Form::textarea('faq_answer', null, array('class'=>'form-control', 'id'=>'faq_answer', 'placeholder'=>'Answer')) !!}
         {!! APFrmErrHelp::showErrors($errors, 'faq_answer') !!}                                       
     </div>
+    <div class="form-group {!! APFrmErrHelp::hasError($errors, 'faq_category') !!}">
+        {!! Form::label('faq_category', 'FAQ Category', ['class' => 'bold']) !!}                    
+        {!! Form::select('faq_category', ['' => 'Select Category']+$faq_categories,isset($faq) ? $faq->faq_category_id : '', array('class'=>'form-control', 'id'=>'faq_category')) !!}
+        {!! APFrmErrHelp::showErrors($errors, 'faq_category') !!}                                       
+    </div>      
     <div class="form-actions">
         {!! Form::button('Update <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>', array('class'=>'btn btn-large btn-primary', 'type'=>'submit')) !!}
     </div>

@@ -41,12 +41,14 @@
                                             <td>{!! Form::select('lang', ['' => 'Select Language']+$languages, config('default_lang'), array('id'=>'lang', 'class'=>'form-control')) !!}</td>
                                             <td><input type="text" class="form-control" name="faq_question" id="faq_question" autocomplete="off"></td>
                                             <td><input type="text" class="form-control" name="faq_answer" id="faq_answer" autocomplete="off"></td>
+                                            <td><input type="text" class="form-control" name="name" id="name" autocomplete="off"></td>
                                             <td></td>
                                         </tr>
                                         <tr role="row" class="heading"> 
                                             <th>Language</th>                                               
                                             <th>Question</th>
                                             <th>Answer</th>
+                                            <th>Category</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -80,12 +82,14 @@
                     d.lang = $('#lang').val();
                     d.faq_question = $('input[name=faq_question]').val();
                     d.faq_answer = $('input[name=faq_answer]').val();
+                    d.name = $('input[name=name]').val();
                 }
             }, columns: [
                 /*{data: 'id_checkbox', name: 'id_checkbox', orderable: false, searchable: false},*/
                 {data: 'lang', name: 'lang'},
                 {data: 'faq_question', name: 'faq_question'},
                 {data: 'faq_answer', name: 'faq_answer'},
+                {data: 'name', name: 'name'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
@@ -102,6 +106,10 @@
             e.preventDefault();
         });
         $('#faq_answer').on('keyup', function (e) {
+            oTable.draw();
+            e.preventDefault();
+        });
+        $('#name').on('keyup', function (e) {
             oTable.draw();
             e.preventDefault();
         });
