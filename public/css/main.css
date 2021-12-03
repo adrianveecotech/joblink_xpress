@@ -2914,7 +2914,7 @@ ul.skillslist li a:hover{text-decoration: none; background:#17d27c; color: #fff;
 .faqs h4 a {
 	padding: 15px 55px 15px 15px;
 	display: block;
-	background: #5e2dfa;
+	background: #3d5a80;
 	color: #fff;
 	font-size: 16px;
 	position: relative;
@@ -2929,7 +2929,7 @@ ul.skillslist li a:hover{text-decoration: none; background:#17d27c; color: #fff;
 }
 .faqs h4 .collapsed:hover, .faqs h4 a:hover, .faqs h4 a:active {
 	text-decoration: none;
-	background: #5e2dfa;
+	background: #3d5a80;
 	color: #fff;
 }
 .faqs h4 a:before {
