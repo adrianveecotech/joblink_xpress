@@ -28,7 +28,12 @@ $queryString = MiscHelper::getLangQueryStr();
         {!! Form::label('faq_category', 'FAQ Category', ['class' => 'bold']) !!}                    
         {!! Form::select('faq_category', ['' => 'Select Category']+$faq_categories,isset($faq) ? $faq->faq_category_id : '', array('class'=>'form-control', 'id'=>'faq_category')) !!}
         {!! APFrmErrHelp::showErrors($errors, 'faq_category') !!}                                       
-    </div>      
+    </div>     
+    <div class="form-group {!! APFrmErrHelp::hasError($errors, 'video_url') !!}">
+        {!! Form::label('video_url', 'Video URL', ['class' => 'bold']) !!}                    
+        {!! Form::text('video_url', null, array('class'=>'form-control', 'id'=>'video_url', 'placeholder'=>'')) !!}
+        {!! APFrmErrHelp::showErrors($errors, 'video_url') !!}                                       
+    </div>
     <div class="form-actions">
         {!! Form::button('Update <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>', array('class'=>'btn btn-large btn-primary', 'type'=>'submit')) !!}
     </div>

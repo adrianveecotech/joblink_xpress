@@ -57,6 +57,7 @@ class FaqController extends Controller
         $faq->faq_question = $request->input('faq_question');
         $faq->faq_answer = $request->input('faq_answer');
         $faq->lang = $request->input('lang');
+        $faq->video_url = $request->input('video_url');
         $faq->faq_category_id = $request->faq_category;
         $faq->save();
         /*         * ************************************ */
@@ -83,6 +84,7 @@ class FaqController extends Controller
         $faq->faq_question = $request->input('faq_question');
         $faq->faq_answer = $request->input('faq_answer');
         $faq->lang = $request->input('lang');
+        $faq->video_url = $request->input('video_url');
         $faq->update();
         flash('FAQ has been updated!')->success();
         return \Redirect::route('edit.faq', array($faq->id));
