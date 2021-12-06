@@ -1,5 +1,6 @@
 @if(Auth::guard('company')->check())
-<h3 class="seekertxt">{{__('One million success stories')}}. <span>{{__('Search Jobseekers Today')}}.</span></h3>
+<h3 class="seekertxt">{{__('One million success stories')}}.</h3>
+<h3 class="seekertxt">{{__('Search Jobseekers Today')}}.</h3>
 <form action="{{route('job.seeker.list')}}" method="get">
 	<div class="searchbar">
 		<div class="srchbox seekersrch">

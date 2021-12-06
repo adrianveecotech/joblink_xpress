@@ -26,7 +26,11 @@
 </div>
 <!-- Search End --> 
 @else
+@if(Auth::guard('company')->check()) 
+<div class="searchwrap employer">
+@else
 <div class="searchwrap">
+@endif
     <div class="container">
         
 

@@ -611,6 +611,11 @@ h6 {
 	background-size: cover;
 	padding: 150px 0;
 }
+.searchwrap.employer {
+	background: url(../images/search-bg.jpg) no-repeat top;
+	background-size: cover;
+	padding: 250px 0;
+}
 .searchwrap h3 {
 	text-align: center;
 	font-size: 40px;
@@ -640,13 +645,16 @@ h6 {
 	margin-left: -15px;
 }
 
-h3.seekertxt{text-align: left; color: #000; font-size: 48px; font-weight: 700;  text-shadow: 5px 5px 10px rgba(0,0,0,0.2);}
-h3.seekertxt span{color: #009c46;margin-left: 0px;}
+h3.seekertxt{text-align: center; color: #0a2351; font-size: 48px; font-weight: 700;  text-shadow: 5px 5px 10px rgba(0,0,0,0.2);}
+h3.seekertxt span{color: #0a2351;text-align: center; }
 
 .srchbox label{display: block; color: #0a2351; margin-bottom: 5px;font-size: 17px; font-weight: 700;}
 .additional_fields{margin-top: 50px}
 
 .seekersrch{max-width: 700px; background: #fff; padding: 15px; box-shadow:0px 20px 40px 5px rgb(0 0 0 / 20%); border-radius: 5px;margin-left: 0px;}
+.srchbox.seekersrch{
+	margin : auto
+}
 .additional_fields .form-control{margin-bottom: 20px; }
 
 
@@ -4615,6 +4623,10 @@ blockquote:after {
 .srchbox {
 	margin-left: 800px;
 }
+
+.srchbox.seekersrch {
+	margin : auto;
+}
 }
 @media screen and (max-width: 1200px) {
 .srchbox {
@@ -4693,6 +4705,9 @@ blockquote:after {
 .header {
 	padding : 0
 }
+.searchwrap.employer{
+	padding : 150px 0;
+}
 .searchwrap h3 {
 	font-size: 33px;
 	text-align: center;
@@ -4755,6 +4770,7 @@ body {
 }
 .seekersrch{
 	margin: 0 auto;
+	max-width: 600px;
 }
 .searchbar .btn {
 	width: 100%;
@@ -5036,13 +5052,16 @@ Large Mobile Screen
 .seekersrch .form-control{
 	width: 100%;
 }
+.seekersrch {
+	max-width: 400px;
+}
 .jobButtons a {
 	display: block;
 	margin-right: 0;
 	margin-top: 10px;
 }
 .searchwrap h3 {
-	font-size: 24px;
+	font-size: 30px;
 }
 .searchwrap h3 span{
 	font-size: 32px;
@@ -5061,7 +5080,7 @@ Large Mobile Screen
     padding: 0 30px;
 }
 .searchbar .input-group{display: block;}
-.searchbar .btn{margin: 15px 0 0 0}
+.searchbar .btn{margin: 30px 0 0 0}
 
 .usernav li a {
 	padding: 10px 10px;
