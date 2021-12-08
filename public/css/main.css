@@ -4610,6 +4610,8 @@ blockquote:after {
 
 .help-block-error{color: #FE0004}
 
+.help-block strong{color: #FE0004;}
+
 /*******************
 
 	Large Screen
