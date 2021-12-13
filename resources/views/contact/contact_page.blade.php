@@ -27,7 +27,7 @@
                         </div>
                     </div> -->
                     <!-- Contact Info -->
-                    <div class="col-lg-6 column">
+                    <div class="col-lg-12 column">
                         <div class="contact"> <span><i class="fa fa-envelope"></i></span>
                             <div class="information"> <strong>{{__('Email Address')}}:</strong>
                                 <p><a href="mailto:{{ $siteSetting->mail_to_address }}">{{ $siteSetting->mail_to_address }}</a></p>
@@ -36,14 +36,7 @@
                         </div>
                     </div>
                     <!-- Contact Info -->
-                    <div class="col-lg-6 column">
-                        <div class="contact"> <span><i class="fa fa-whatsapp"></i></span>
-                            <div class="information"> <strong>{{__('Phone')}}:</strong>
-                                <p><a href="tel:{{ $siteSetting->site_phone_primary }}">{{ $siteSetting->site_phone_primary }}</a></p>
-                                <p><a href="tel:{{ $siteSetting->site_phone_secondary }}">{{ $siteSetting->site_phone_secondary }}</a></p>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <!-- Contact Info --> 
                 </div>
 					<div class="row"> 

@@ -55,9 +55,7 @@
             <!--About Us-->
             <div class="col-md-3 col-sm-12">
                 <h5>{{__('Contact Us')}}</h5>
-                <div class="address">{{ $siteSetting->site_street_address }}</div>
                 <div class="email"> <a href="mailto:{{ $siteSetting->mail_to_address }}">{{ $siteSetting->mail_to_address }}</a> </div>
-                <div class="phone"> <a href="tel:{{ $siteSetting->site_phone_primary }}">{{ $siteSetting->site_phone_primary }}</a></div>
                 <!-- Social Icons -->
                 <div class="social">@include('includes.footer_social')</div>
                 <!-- Social Icons end --> 
