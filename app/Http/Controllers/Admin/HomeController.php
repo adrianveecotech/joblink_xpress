@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\User;
 use App\Job;
+use App\Company;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -37,6 +38,8 @@ class HomeController extends Controller
         $totalFeaturedJobs = Job::where('is_featured', 1)->count();
         $totalTodaysJobs = Job::where('created_at', 'like', $today->toDateString() . '%')->count();
         $recentJobs = Job::orderBy('id', 'DESC')->take(25)->get();
+        $newEmployers = Company::where('is_active', 0)->count();
+        $newUsers = User::where('is_active', 0)->count();
         return view('admin.home')
                         ->with('totalActiveUsers', $totalActiveUsers)
                         ->with('totalVerifiedUsers', $totalVerifiedUsers)
@@ -45,7 +48,9 @@ class HomeController extends Controller
                         ->with('totalActiveJobs', $totalActiveJobs)
                         ->with('totalFeaturedJobs', $totalFeaturedJobs)
                         ->with('totalTodaysJobs', $totalTodaysJobs)
-                        ->with('recentJobs', $recentJobs);
+                        ->with('recentJobs', $recentJobs)
+                        ->with('newUsers', $newUsers)
+                        ->with('newEmployers', $newEmployers);
     }
 
 }

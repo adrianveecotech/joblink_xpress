@@ -50,7 +50,7 @@
                 <div class="col-lg-12 column">
                     <div class="contact-form">
                         <div id="message"></div>
-                        <form method="post" action="{{ route('contact.us')}}" name="contactform" id="contactform">
+                        <form method="post" action="{{ route('contact.us.post')}}" name="contactform" id="contactform">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6{{ $errors->has('full_name') ? ' has-error' : '' }}">                  

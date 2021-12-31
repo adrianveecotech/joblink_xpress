@@ -52,7 +52,7 @@
                                             <td><select name="is_active" id="is_active"  class="form-control">
                                                     <option value="-1">Is Active?</option>
                                                     <option value="1" selected="selected">Active</option>
-                                                    <option value="0">In Active</option>
+                                                    <option value="0">Inactive</option>
                                                 </select></td>
                                         </tr>
                                         <tr role="row" class="heading">

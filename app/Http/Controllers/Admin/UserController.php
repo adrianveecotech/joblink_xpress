@@ -306,6 +306,12 @@ class UserController extends Controller
                             if ($request->has('email') && !empty($request->email)) {
                                 $query->where('users.email', 'like', "%{$request->get('email')}%");
                             }
+                            if ($request->has('is_verified') && isset($request->is_verified)) {
+                                $query->where('users.verified', '=', "{$request->get('is_verified')}");
+                            }
+                            if ($request->has('is_active') && isset($request->is_active)) {
+                                $query->where('users.is_active', '=', "{$request->get('is_active')}");
+                            }
                         })
                         ->addColumn('name', function ($users) {
                             return $users->first_name . ' ' . $users->middle_name . ' ' . $users->last_name;

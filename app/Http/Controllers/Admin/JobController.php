@@ -82,6 +82,9 @@ class JobController extends Controller
                             if ($request->has('is_featured') && $request->is_featured != -1) {
                                 $query->where('jobs.is_featured', '=', "{$request->get('is_featured')}");
                             }
+                            if($request->has('date')  && !empty($request->date)) {
+                                $query->where('jobs.created_at', 'like', "%{$request->get('date')}%");
+                            }
                         })
                         ->addColumn('company_id', function ($jobs) {
                             return $jobs->getCompany('name');

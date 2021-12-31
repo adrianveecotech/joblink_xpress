@@ -39,11 +39,18 @@
                                             <td><input type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Company Name"></td>
                                             <td><input type="text" class="form-control" name="email" id="email" autocomplete="off" placeholder="Company Email"></td>
                                             <td><select name="is_active" id="is_active" class="form-control">
-                                                    <option value="-1">Is Active?</option>
-                                                    <option value="1" selected="selected">Active</option>
-                                                    <option value="0">In Active</option>
+                                                    @if(Request::get('status') == "inactive")
+                                                    <option value="-1" >Is Active?</option>
+                                                    <option value="1" >Active</option>
+                                                    <option value="0" selected="selected">Inactive</option>
+                                                    @else
+                                                    <option value="-1" selected="selected" >Is Active?</option>
+                                                    <option value="1" >Active</option>
+                                                    <option value="0" >Inactive</option>
+                                                    @endif
+                                                                                    
                                                 </select></td>
-                                            <td><select name="is_featured" id="is_featured" class="form-control">
+                                             <td><select nam  e="is_featured" id="is_featured" class="form-control">
                                                     <option value="-1">Is Featured?</option>
                                                     <option value="1">Featured</option>
                                                     <option value="0">Not Featured</option>

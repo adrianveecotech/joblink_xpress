@@ -36,7 +36,7 @@
                                 <table class="table table-striped table-bordered table-hover"  id="videoDatatableAjax">
                                     <thead>                                        
                                         <tr role="row" class="filter">
-                                            <td>{!! Form::select('lang', ['' => 'Select Language']+$languages, null, array('id'=>'lang', 'class'=>'form-control')) !!}</td><td><input type="text" class="form-control" name="video_title" id="video_title" autocomplete="off" placeholder="Video Title"></td><td><select name="is_active" id="is_active"  class="form-control"><option value="-1">Is Active?</option><option value="1" selected="selected">Active</option><option value="0">In Active</option></select></td>
+                                            <td>{!! Form::select('lang', ['' => 'Select Language']+$languages, null, array('id'=>'lang', 'class'=>'form-control')) !!}</td><td><input type="text" class="form-control" name="video_title" id="video_title" autocomplete="off" placeholder="Video Title"></td><td><select name="is_active" id="is_active"  class="form-control"><option value="-1">Is Active?</option><option value="1" selected="selected">Active</option><option value="0">Inactive</option></select></td>
                                         </tr>
                                         <tr role="row" class="heading">
                                             <th>Language</th><th>Video Title</th><th>Actions</th>

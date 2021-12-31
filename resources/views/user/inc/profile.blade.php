@@ -1,5 +1,5 @@
 
-{!! Form::model($user, array('method' => 'put', 'route' => array('my.profile'), 'class' => 'form', 'files'=>true)) !!}
+{!! Form::model($user, array('method' => 'put', 'route' => array('my.profile.put'), 'class' => 'form', 'files'=>true)) !!}
 
 <h5>{{__('Account Information')}}</h5>
 <div class="row">

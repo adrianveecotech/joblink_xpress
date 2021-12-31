@@ -70,7 +70,6 @@
             serverSide: true,
             stateSave: true,
             searching: false,
-            "order": [[0, "desc"]],
             /*		
              paging: true,
              info: true,
@@ -81,6 +80,8 @@
                     d.id = $('input[name=id]').val();
                     d.name = $('input[name=name]').val();
                     d.email = $('input[name=email]').val();
+                    d.is_verified = "<?php echo Request::get('is_verified') ?>";
+                    d.is_active = "<?php echo Request::get('is_active') ?>";
                 }
             }, columns: [
                 /*{data: 'id_checkbox', name: 'id_checkbox', orderable: false, searchable: false},*/

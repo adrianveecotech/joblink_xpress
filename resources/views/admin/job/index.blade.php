@@ -1,5 +1,8 @@
 @extends('admin.layouts.admin_layout')
 @section('content')
+<?php
+$date = Request::get('filter');
+?>
 <style type="text/css">
     .table td, .table th {
         font-size: 12px;
@@ -49,14 +52,26 @@
                                                     {!! Form::select('city_id', ['' => 'Select City'], null, array('id'=>'city_id', 'class'=>'form-control')) !!}
                                                 </span></td>
                                             <td><select name="is_active" id="is_active" class="form-control">
+                                                @if(Request::get('status') == 'active')
                                                     <option value="-1">Is Active?</option>
                                                     <option value="1" selected="selected">Active</option>
-                                                    <option value="0">In Active</option>
+                                                    <option value="0">Inactive</option>
+                                                @else
+                                                <option value="-1" selected="selected">Is Active?</option>
+                                                    <option value="1" >Active</option>
+                                                    <option value="0">Inactive</option>
+                                                @endif
                                                 </select>
                                                 <select name="is_featured" id="is_featured" class="form-control">
+                                                    @if(Request::get('status') == 'featured')
+                                                    <option value="-1">Is Featured?</option>
+                                                    <option value="1" selected="selected">Featured</option>
+                                                    <option value="0">Not Featured</option>
+                                                    @else
                                                     <option value="-1">Is Featured?</option>
                                                     <option value="1">Featured</option>
                                                     <option value="0">Not Featured</option>
+                                                    @endif
                                                 </select></td>
                                         </tr>
                                         <tr role="row" class="heading">
@@ -83,6 +98,7 @@
 @push('scripts') 
 <script>
     $(function () {
+       
         var oTable = $('#jobDatatableAjax').DataTable({
             processing: true,
             serverSide: true,
@@ -104,6 +120,7 @@
                     d.city_id = $('#city_id').val();
                     d.is_active = $('#is_active').val();
                     d.is_featured = $('#is_featured').val();
+                    d.date = "<?php echo Request::get('date') ?>";
                 }
             }, columns: [
                 {data: 'company_id', name: 'company_id'},

@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="userccount">
-                    {!! Form::open(array('method' => 'post', 'route' => ['email.to.friend', $slug])) !!}
+                    {!! Form::open(array('method' => 'post', 'route' => ['email.to.friend.post', $slug])) !!}
                     <div class="formpanel"> 
                         <!-- Ad Information -->
                         <h5>Email to Friend</h5>            

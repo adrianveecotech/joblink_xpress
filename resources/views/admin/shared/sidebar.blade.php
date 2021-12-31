@@ -85,6 +85,7 @@
         @include('admin/shared/side_bars/marital_status')
         @include('admin/shared/side_bars/ownership_type') 
         @include('admin/shared/side_bars/salary_period') 
+        @include('admin/shared/side_bars/contact_form') 
 		
         <li class="heading">
             <h3 class="uppercase">Manage</h3>

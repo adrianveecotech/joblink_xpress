@@ -12,7 +12,7 @@
         @include('flash::message')
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="userccount"> {!! Form::open(array('method' => 'post', 'route' => ['report.abuse', $slug])) !!}
+                <div class="userccount"> {!! Form::open(array('method' => 'post', 'route' => ['report.abuse.post', $slug])) !!}
                     <div class="formpanel"> 
                         <!-- Ad Information -->
                         <h5>{{__('Report Abuse')}}</h5>            

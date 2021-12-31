@@ -36,7 +36,7 @@
                                 <table class="table table-striped table-bordered table-hover"  id="degreeLevelDatatableAjax">
                                     <thead>                                        
                                         <tr role="row" class="filter">
-                                            <td>{!! Form::select('lang', ['' => 'Select Language']+$languages, config('default_lang'), array('id'=>'lang', 'class'=>'form-control')) !!}</td><td><input type="text" class="form-control" name="degree_level" id="degree_level" autocomplete="off" placeholder="Degree Level"></td><td><select name="is_active" id="is_active"  class="form-control"><option value="-1">Is Active?</option><option value="1" selected="selected">Active</option><option value="0">In Active</option></select></td>
+                                            <td>{!! Form::select('lang', ['' => 'Select Language']+$languages, config('default_lang'), array('id'=>'lang', 'class'=>'form-control')) !!}</td><td><input type="text" class="form-control" name="degree_level" id="degree_level" autocomplete="off" placeholder="Degree Level"></td><td><select name="is_active" id="is_active"  class="form-control"><option value="-1">Is Active?</option><option value="1" selected="selected">Active</option><option value="0">Inactive</option></select></td>
                                         </tr>
                                         <tr role="row" class="heading">
                                             <th>Language</th><th>Degree Level</th><th>Actions</th>

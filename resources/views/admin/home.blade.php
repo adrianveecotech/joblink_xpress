@@ -18,21 +18,21 @@
         <!-- END PAGE HEADER-->
         <div class="row">
             <div class="col-md-6 col-sm-6">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 green" href="{{ route('list.users', ['is_active' => '0']) }}">
                         <div class="visual"> <i class="fa fa-user"></i> </div>
                         <div class="details">
-                            <div class="number"> <span data-counter="counterup" data-value="1349">{{ $totalTodaysUsers }}</span> </div>
-                            <div class="desc"> Todays Users </div>
+                            <div class="number"> <span data-counter="counterup" data-value="1349">{{ $newUsers }}</span> </div>
+                            <div class="desc"> New Users </div>
                         </div>
                     </a> </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 red" href="{{ route('list.users', ['is_active' => '1']) }}">
                         <div class="visual"> <i class="fa fa-user"></i> </div>
                         <div class="details">
                             <div class="number"> <span data-counter="counterup" data-value="1349">{{ $totalActiveUsers }}</span> </div>
                             <div class="desc"> Active Users </div>
                         </div>
                     </a> </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 blue" href="{{ route('list.users', ['is_verified' => '1']) }}">
                         <div class="visual"> <i class="fa fa-user"></i> </div>
                         <div class="details">
                             <div class="number"> <span data-counter="counterup" data-value="1349">{{ $totalVerifiedUsers }}</span> </div>
@@ -41,27 +41,47 @@
                     </a> </div>
             </div>
             <div class="col-md-6 col-sm-6">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 red" href="{{ route('list.jobs', ['date' => '2021-12-31']) }}">
                         <div class="visual"> <i class="fa fa-list"></i> </div>
                         <div class="details">
                             <div class="number"> <span data-counter="counterup" data-value="1349">{{ $totalTodaysJobs }}</span> </div>
-                            <div class="desc"> Todays Jobs </div>
+                            <div class="desc"> Today's Jobs </div>
                         </div>
                     </a> </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 blue" href="{{ route('list.jobs', ['status' => 'active']) }}">
                         <div class="visual"> <i class="fa fa-list"></i> </div>
                         <div class="details">
                             <div class="number"> <span data-counter="counterup" data-value="1349">{{ $totalActiveJobs }}</span> </div>
                             <div class="desc"> Active Jobs </div>
                         </div>
                     </a> </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 purple" href="{{ route('list.jobs', ['status' => 'featured']) }}">
                         <div class="visual"> <i class="fa fa-list"></i> </div>
                         <div class="details">
                             <div class="number"> <span data-counter="counterup" data-value="1349">{{ $totalFeaturedJobs }}</span> </div>
                             <div class="desc"> Featured Jobs </div>
                         </div>
                     </a> </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> <a class="dashboard-stat dashboard-stat-v2 green" href="{{ route('list.companies', ['status' => 'inactive']) }}">
+                    <div class="visual"> <i class="fa fa-list"></i> </div>
+                    <div class="details">
+                    <div class="number"> <span data-counter="counterup" data-value="1349">{{ $newEmployers }}</span> </div>
+                    <div class="desc"> New Employers </div>
+                    </div>
+                </a> </div>    
+                    
+                <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> 
+                    <form action="{{ route('list.companies') }}" method="post">
+                    <div class="dashboard-stat dashboard-stat-v2 green" onClick="javascript:this.parentNode.submit();" style="cursor: pointer">   
+                        <input type="hidden" name="inactive" value="true">
+                        <div class="visual"> <i class="fa fa-list"></i> </div>
+                        <div class="details">
+                            <div class="number"> <span data-counter="counterup" data-value="1349">{{ $newEmployers }}</span> </div>
+                            <div class="desc"> New Employers</div>
+                        </div>
+                    </div> 
+                    </form> 
+                </div>    -->
             </div>
         </div>
         <div class="row">
