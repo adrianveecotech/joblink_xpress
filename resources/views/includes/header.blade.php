@@ -18,7 +18,9 @@
 							
                             
 							@if(Auth::guard('company')->check())
+                            @if(Auth::guard('company')->user()->is_paid == 1)
 							<li class="nav-item"><a href="{{url('/job-seekers')}}" class="nav-link">{{__('Seekers')}}</a> </li>
+                            @endif
 							@else
 							<li class="nav-item"><a href="{{url('/jobs')}}" class="nav-link">{{__('Jobs')}}</a> </li>
 							@endif

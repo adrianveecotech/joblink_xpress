@@ -121,7 +121,7 @@ class UserController extends Controller
 		if ($request->hasFile('cover_image')) {
 			$is_deleted = $this->deleteUserCoverImage($user->id);
             $cover_image = $request->file('cover_image');
-            $fileName_cover_image = ImgUploader::UploadImage('user_images', $cover_image, $request->input('name'), 1140, 250, false);
+            $fileName_cover_image = ImgUploader::UploadImage('user_images', $cover_image, $request->input('name'), 1440, 253, false);
             $user->cover_image = $fileName_cover_image;
         }
 		

@@ -38,6 +38,14 @@ class JobSeekerController extends Controller
 
     public function jobSeekersBySearch(Request $request)
     {
+        if(Auth::guard('company')->check() || Auth::guard('admin')->check() ){
+            if(Auth::guard('company')->check())
+            {
+                if(Auth::guard('company')->user()->is_paid == 0)
+                {
+                    return abort('404');
+                }
+            }
         $search = $request->query('search', '');
         $functional_area_ids = $request->query('functional_area_id', array());
         $country_ids = $request->query('country_id', array());
@@ -128,6 +136,9 @@ class JobSeekerController extends Controller
                         ->with('genderIdsArray', $genderIdsArray)
                         ->with('jobExperienceIdsArray', $jobExperienceIdsArray)
                         ->with('seo', $seo);
+    }else{
+        return abort('404');
     }
+}
 
 }

@@ -524,7 +524,7 @@ trait JobTrait
 
         $job = $this->assignJobValues($job, $request);
 
-        $job->is_active = 2;
+        $job->is_active = 0;
 
         $job->save();
 
@@ -562,7 +562,7 @@ trait JobTrait
 
         // event(new JobPosted($job));
 
-        flash('Job has been added!')->success();
+        flash("Job has been added! Please wait for admin's approval.")->success();
 
         return \Redirect::route('edit.front.job', array($job->id));
 

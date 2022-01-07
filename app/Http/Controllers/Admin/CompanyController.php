@@ -553,7 +553,8 @@ class CompanyController extends Controller
                     'companies.is_active',
 
                     'companies.is_featured',
-
+                    
+                    'companies.is_paid',
         ]);
 
         return Datatables::of($companies)
@@ -584,6 +585,12 @@ class CompanyController extends Controller
 
                             }
 
+                            if ($request->has('is_paid') && $request->is_paid != -1) {
+
+                                $query->where('companies.is_paid', '=', "{$request->get('is_paid')}");
+
+                            }
+
                         })
 
                         ->addColumn('is_active', function ($companies) {
@@ -595,6 +602,12 @@ class CompanyController extends Controller
                         ->addColumn('is_featured', function ($companies) {
 
                             return ((bool) $companies->is_featured) ? 'Yes' : 'No';
+
+                        })
+
+                        ->addColumn('is_paid', function ($companies) {
+
+                            return ((bool) $companies->is_paid) ? 'Yes' : 'No';
 
                         })
 
@@ -633,6 +646,22 @@ class CompanyController extends Controller
                                 $featuredHref = 'makeNotFeatured(' . $companies->id . ');';
 
                                 $featuredIcon = 'check-square-o';
+
+                            }
+
+                            $paidTxt = 'Make Paid';
+
+                            $paidHref = 'makePaid(' . $companies->id . ');';
+
+                            $paidIcon = 'square-o';
+
+                            if ((int) $companies->is_paid == 1) {
+
+                                $paidTxt = 'Make Not Paid';
+
+                                $paidHref = 'makeNotPaid(' . $companies->id . ');';
+
+                                $paidIcon = 'check-square-o';
 
                             }
 
@@ -676,13 +705,15 @@ class CompanyController extends Controller
 
 <li><a href="javascript:void(0);" onClick="' . $featuredHref . '" id="onclickFeatured' . $companies->id . '"><i class="fa fa-' . $featuredIcon . '" aria-hidden="true"></i>' . $featuredTxt . '</a></li>
 
+<li><a href="javascript:void(0);" onClick="' . $paidHref . '" id="onclickPaid' . $companies->id . '"><i class="fa fa-' . $paidIcon . '" aria-hidden="true"></i>' . $paidTxt . '</a></li>
+
 					</ul>
 
 				</div>';
 
                         })
 
-                        ->rawColumns(['action', 'is_active', 'is_featured'])
+                        ->rawColumns(['action', 'is_active', 'is_featured','is_paid'])
 
                         ->setRowId(function($companies) {
 
@@ -789,6 +820,56 @@ class CompanyController extends Controller
             $company = Company::findOrFail($id);
 
             $company->is_featured = 0;
+
+            $company->update();
+
+            echo 'ok';
+
+        } catch (ModelNotFoundException $e) {
+
+            echo 'notok';
+
+        }
+
+    }
+
+    public function makePaidCompany(Request $request)
+
+    {
+
+        $id = $request->input('id');
+
+        try {
+
+            $company = Company::findOrFail($id);
+
+            $company->is_paid = 1;
+
+            $company->update();
+
+            echo 'ok';
+
+        } catch (ModelNotFoundException $e) {
+
+            echo 'notok';
+
+        }
+
+    }
+
+
+
+    public function makeNotPaidCompany(Request $request)
+
+    {
+
+        $id = $request->input('id');
+
+        try {
+
+            $company = Company::findOrFail($id);
+
+            $company->is_paid = 0;
 
             $company->update();
 

@@ -68,8 +68,9 @@ use RegistersUsers;
         $company->name = $request->input('name');
         $company->email = $request->input('email');
         $company->password = bcrypt($request->input('password'));
-        $company->is_active = 0;
+        $company->is_active = 1;
         $company->verified = 0;
+        $company->is_paid = 0;
         $company->save();
         /*         * ******************** */
         $company->slug = Str::slug($company->name, '-') . '-' . $company->id;

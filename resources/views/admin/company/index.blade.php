@@ -50,11 +50,16 @@
                                                     @endif
                                                                                     
                                                 </select></td>
-                                             <td><select nam  e="is_featured" id="is_featured" class="form-control">
+                                             <td><select name="is_featured" id="is_featured" class="form-control">
                                                     <option value="-1">Is Featured?</option>
                                                     <option value="1">Featured</option>
                                                     <option value="0">Not Featured</option>
                                                 </select></td>
+                                            <td><select name="is_paid" id="is_paid" class="form-control">
+                                                <option value="-1">Is Paid?</option>
+                                                <option value="1">Paid</option>
+                                                <option value="0">Not Paid</option>
+                                            </select></td>
                                             <td></td>
                                         </tr>
                                         <tr role="row" class="heading">
@@ -62,6 +67,7 @@
                                             <th>Email</th>
                                             <th>Is Active?</th>
                                             <th>Is Featured?</th>
+                                            <th>Is Paid?</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -98,12 +104,14 @@
                     d.email = $('#email').val();
                     d.is_active = $('#is_active').val();
                     d.is_featured = $('#is_featured').val();
+                    d.is_paid = $('#is_paid').val();
                 }
             }, columns: [
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
                 {data: 'is_active', name: 'is_active'},
                 {data: 'is_featured', name: 'is_featured'},
+                {data: 'is_paid', name: 'is_paid'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
@@ -124,6 +132,10 @@
             e.preventDefault();
         });
         $('#is_featured').on('change', function (e) {
+            oTable.draw();
+            e.preventDefault();
+        });
+        $('#is_paid').on('change', function (e) {
             oTable.draw();
             e.preventDefault();
         });
@@ -185,6 +197,32 @@
     }
     function makeNotFeatured(id) {
         $.post("{{ route('make.not.featured.company') }}", {id: id, _method: 'PUT', _token: '{{ csrf_token() }}'})
+                .done(function (response) {
+                    if (response == 'ok')
+                    {
+                        var table = $('#companyDatatableAjax').DataTable();
+                        table.row('companyDtRow' + id).remove().draw(false);
+                    } else
+                    {
+                        alert('Request Failed!');
+                    }
+                });
+    }
+    function makePaid(id) {
+        $.post("{{ route('make.paid.company') }}", {id: id, _method: 'PUT', _token: '{{ csrf_token() }}'})
+                .done(function (response) {
+                    if (response == 'ok')
+                    {
+                        var table = $('#companyDatatableAjax').DataTable();
+                        table.row('companyDtRow' + id).remove().draw(false);
+                    } else
+                    {
+                        alert('Request Failed!');
+                    }
+                });
+    }
+    function makeNotPaid(id) {
+        $.post("{{ route('make.not.paid.company') }}", {id: id, _method: 'PUT', _token: '{{ csrf_token() }}'})
                 .done(function (response) {
                     if (response == 'ok')
                     {

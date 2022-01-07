@@ -16,7 +16,7 @@
                 <br>
                 <h2>{{__('Message received')}}</h2>
                 <br>
-                <p>{{__('We have received your message and would like to thank you for writing to us. If your inquiry is urgent, please use the telephone number to talk to one of our staff members. Otherwise, we will reply by email as soon as possible')}}<br /><br />
+                <p>{{__('Thank you for writing to us. We will reply you as soon as possible.')}}<br /><br />
                 <br>
                 <br>
                 <br>

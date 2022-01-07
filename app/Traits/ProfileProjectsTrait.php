@@ -230,9 +230,10 @@ trait ProfileProjectsTrait
 
                     $date_end = $project->date_end->format('d M, Y');
 
-
-
-                $image = ImgUploader::get_image("project_images/thumb/$project->image");
+                if(isset($project->image))
+                    $image = ImgUploader::get_image("project_images/thumb/$project->image");
+                else
+                    $image = ImgUploader::get_image("project_images/thumb/no-portfolio.png");
 
                 $html .= '<li class="col-md-3">
 
@@ -240,7 +241,7 @@ trait ProfileProjectsTrait
 
                   <div class="itemHover">
 
-                    <div class="zoombox"><a href="' . $project->url . '" title="' . $project->name . '" class="item-zoom fancybox-effects-a"><i class="fa fa-search" aria-hidden="true"></i></a> </div>
+                    <div class="zoombox"><a href="' . $project->url . '" title="' . $project->name . '" class="item-zoom fancybox-effects-a"><i class="fa fa-arrow-right" aria-hidden="true"></i></a> </div>
 
                     <div class="infoItem">
 

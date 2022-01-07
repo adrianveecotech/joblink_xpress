@@ -3,18 +3,13 @@
 
 <h5>{{__('Account Information')}}</h5>
 <div class="row">
-<div class="col-md-6">
-        <div class="formrow {!! APFrmErrHelp::hasError($errors, 'email') !!}">
-			<label for="">{{__('Email')}}</label>
-			{!! Form::text('email', null, array('class'=>'form-control', 'id'=>'email', 'placeholder'=>__('Email'))) !!}
-            {!! APFrmErrHelp::showErrors($errors, 'email') !!} </div>
-    </div>
     <div class="col-md-6">
         <div class="formrow {!! APFrmErrHelp::hasError($errors, 'password') !!}">
 			<label for="">{{__('Password')}}</label>
 			{!! Form::password('password', array('class'=>'form-control', 'id'=>'password', 'placeholder'=>__('Password'))) !!}
             {!! APFrmErrHelp::showErrors($errors, 'password') !!} </div>
     </div>
+    {!! Form::hidden('email', null, array('class'=>'form-control', 'id'=>'email', 'placeholder'=>__('Email'))) !!}
 </div>
 
 <hr>
@@ -31,7 +26,7 @@
         <div class="formrow">
             <div id="thumbnail"></div>
             <label class="btn btn-default"> {{__('Select Profile Image')}}
-                <input type="file" name="image" id="image" style="display: none;">
+                <input type="file" name="image" id="image" style="display: none;" accept="image/*">
             </label>
             {!! APFrmErrHelp::showErrors($errors, 'image') !!} </div>
     </div>
@@ -50,8 +45,9 @@
     <div class="col-md-6">
         <div class="formrow">
             <div id="thumbnail_cover_image"></div>
+            <div id="cover_image_message"></div>
             <label class="btn btn-default"> {{__('Select Cover Photo')}}
-                <input type="file" name="cover_image" id="cover_image" style="display: none;">
+                <input type="file" name="cover_image" id="cover_image" style="display: none;" accept="image/*">
             </label>
             {!! APFrmErrHelp::showErrors($errors, 'cover_image') !!} </div>
     </div>
@@ -299,11 +295,26 @@
 		var fileInput_cover_image = document.getElementById("cover_image");
 
         fileInput_cover_image.addEventListener("change", function (e) {
-
+            $('#cover_image_message').html('');
             var files_cover_image = this.files
 
-            showThumbnail_cover_image(files_cover_image)
-
+            var _URL = window.URL || window.webkitURL;
+            var file, img, ratio;
+            if ((file = this.files[0])) {
+                img = new Image();
+                var objectUrl = _URL.createObjectURL(file);
+                img.onload = function () {
+                    ratio = this.width / this.height;
+                    _URL.revokeObjectURL(objectUrl);
+                    if (ratio >= 5 && ratio <= 6){
+                        showThumbnail_cover_image(files_cover_image)
+                    }
+                    else{
+                        $('#cover_image_message').html('<p class="text-danger">Please make sure the width to height ratio is between 5 to 6.</p>');
+                    }
+                };
+                img.src = objectUrl;
+            }
         }, false)
 		
 		

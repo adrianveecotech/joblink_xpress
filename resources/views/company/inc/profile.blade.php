@@ -111,17 +111,23 @@
             {!! APFrmErrHelp::showErrors($errors, 'phone') !!} </div>
     </div>
     <div class="clearfix"></div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="formrow {!! APFrmErrHelp::hasError($errors, 'facebook') !!}">
 			<label>{{__('Facebook')}}</label>
 			{!! Form::text('facebook', null, array('class'=>'form-control', 'id'=>'facebook', 'placeholder'=>__('Facebook'))) !!}
             {!! APFrmErrHelp::showErrors($errors, 'facebook') !!} </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="formrow {!! APFrmErrHelp::hasError($errors, 'twitter') !!}">
 			<label>{{__('Twitter')}}</label>
 			{!! Form::text('twitter', null, array('class'=>'form-control', 'id'=>'twitter', 'placeholder'=>__('Twitter'))) !!}
             {!! APFrmErrHelp::showErrors($errors, 'twitter') !!} </div>
+    </div>
+    <div class="col-md-4">
+        <div class="formrow {!! APFrmErrHelp::hasError($errors, 'instagram') !!}">
+			<label>{{__('Instagram')}}</label>
+			{!! Form::text('instagram', null, array('class'=>'form-control', 'id'=>'instagram', 'placeholder'=>__('Instagram'))) !!}
+            {!! APFrmErrHelp::showErrors($errors, 'instagram') !!} </div>
     </div>
     <div class="col-md-4">
         <div class="formrow {!! APFrmErrHelp::hasError($errors, 'linkedin') !!}">

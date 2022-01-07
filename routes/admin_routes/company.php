@@ -30,4 +30,9 @@ Route::put('make-featured-company', array_merge(['uses' => 'Admin\CompanyControl
 
 Route::put('make-not-featured-company', array_merge(['uses' => 'Admin\CompanyController@makeNotFeaturedCompany'], $all_users))->name('make.not.featured.company');
 
+Route::put('make-paid-company', array_merge(['uses' => 'Admin\CompanyController@makePaidCompany'], $all_users))->name('make.paid.company');
+
+
+Route::put('make-not-paid-company', array_merge(['uses' => 'Admin\CompanyController@makeNotPaidCompany'], $all_users))->name('make.not.paid.company');
+
 /* * ****** End Company ********** */

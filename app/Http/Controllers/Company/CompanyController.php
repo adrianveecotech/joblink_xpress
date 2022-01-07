@@ -113,6 +113,7 @@ class CompanyController extends Controller
         $company->phone = $request->input('phone');
         $company->facebook = $request->input('facebook');
         $company->twitter = $request->input('twitter');
+        $company->instagram = $request->input('instagram');
         $company->linkedin = $request->input('linkedin');
         $company->google_plus = $request->input('google_plus');
         $company->pinterest = $request->input('pinterest');
