@@ -177,8 +177,7 @@
                                     <div class="jobinfo">
 
                                         <h3><a href="{{route('job.detail', [$companyJob->slug])}}"
-
-                                                title="{{$companyJob->title}}">{{$companyJob->title}}</a></h3>
+                                                title="{{$companyJob->title}}">{{$companyJob->title}}</a> @if($companyJob->is_active == 2) <span style="color:red; font-size:small">Pending Approval</span>  @endif</h3>
 
                                         <div class="companyName"><a href="{{route('company.detail', $company->slug)}}"
 

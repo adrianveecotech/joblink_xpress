@@ -524,7 +524,7 @@ trait JobTrait
 
         $job = $this->assignJobValues($job, $request);
 
-        $job->is_active = 0;
+        $job->is_active = 2;
 
         $job->save();
 

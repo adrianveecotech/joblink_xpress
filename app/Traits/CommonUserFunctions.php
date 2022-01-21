@@ -41,7 +41,7 @@ trait CommonUserFunctions
     {
         try {
             $user = User::findOrFail($id);
-            $cover_image = $user->image;
+            $cover_image = $user->cover_image;
             if (!empty($cover_image)) {
                 File::delete(ImgUploader::real_public_path() . 'user_images/thumb/' . $cover_image);
                 File::delete(ImgUploader::real_public_path() . 'user_images/mid/' . $cover_image);

@@ -1,7 +1,7 @@
 <div class="col-md-3 col-sm-4">
 	<div class="usernavwrap">
     <ul class="usernavdash">
-        <li class="active"><a href="{{route('company.home')}}"><i class="fa fa-tachometer" aria-hidden="true"></i> {{__('Dashboard')}}</a></li>
+        <li><a href="{{route('company.home')}}"><i class="fa fa-tachometer" aria-hidden="true"></i> {{__('Dashboard')}}</a></li>
         <li><a href="{{ route('company.profile') }}"><i class="fa fa-pencil" aria-hidden="true"></i> {{__('Edit Profile')}}</a></li>
         <li><a href="{{ route('company.detail', Auth::guard('company')->user()->slug) }}"><i class="fa fa-user" aria-hidden="true"></i> {{__('Company Public Profile')}}</a></li>
         <li><a href="{{ route('post.job') }}"><i class="fa fa-desktop" aria-hidden="true"></i> {{__('Post Job')}}</a></li>
@@ -22,3 +22,21 @@
         <div class="col-md-12">{!! $siteSetting->dashboard_page_ad !!}</div>
     </div>
 </div>
+
+@push('scripts') 
+<script type="text/javascript">
+$(document).ready(function () {
+    var current = location.pathname;
+    console.log(current);
+    $('.usernavdash li a').each(function(){
+        var $this = $(this);
+        // if the current path is like this link, make it active
+        if($this.attr('href').indexOf(current) !== -1){
+            console.log($this.addClass('active'))
+            $this.parent().addClass('active');
+            return false;
+        }
+    })
+})
+</script> 
+@endpush  

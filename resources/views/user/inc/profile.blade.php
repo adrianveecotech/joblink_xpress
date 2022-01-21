@@ -311,6 +311,7 @@
                     }
                     else{
                         $('#cover_image_message').html('<p class="text-danger">Please make sure the width to height ratio is between 5 to 6.</p>');
+                        $('#cover_image').val("");
                     }
                 };
                 img.src = objectUrl;

@@ -43,7 +43,7 @@ class JobSeekerController extends Controller
             {
                 if(Auth::guard('company')->user()->is_paid == 0)
                 {
-                    return abort('404');
+                    return view('company.no_payment');
                 }
             }
         $search = $request->query('search', '');
