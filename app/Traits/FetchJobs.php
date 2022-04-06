@@ -12,7 +12,6 @@ use App\City;
 use App\CareerLevel;
 use App\FunctionalArea;
 use App\JobType;
-use App\JobShift;
 use App\Gender;
 use App\JobExperience;
 use App\DegreeLevel;
@@ -37,7 +36,6 @@ trait FetchJobs
         'jobs.hide_salary',
         'jobs.functional_area_id',
         'jobs.job_type_id',
-        'jobs.job_shift_id',
         'jobs.num_of_positions',
         'jobs.gender_id',
         'jobs.expiry_date',
@@ -50,11 +48,11 @@ trait FetchJobs
         'jobs.updated_at'
     );
 
-    public function fetchJobs($search = '', $job_titles = array(), $company_ids = array(), $industry_ids = array(), $job_skill_ids = array(), $functional_area_ids = array(), $country_ids = array(), $state_ids = array(), $city_ids = array(), $career_level_ids = array(), $job_type_ids = array(), $job_shift_ids = array(), $gender_ids = array(), $degree_level_ids = array(), $job_experience_ids = array(), $salary_from = 0, $salary_to = 0, $salary_currency = '', $is_featured = -1, $orderBy = 'id', $limit = 10)
+    public function fetchJobs($search = '', $job_titles = array(), $company_ids = array(), $industry_ids = array(), $job_skill_ids = array(), $functional_area_ids = array(), $country_ids = array(), $state_ids = array(), $city_ids = array(), $career_level_ids = array(), $job_type_ids = array(), $gender_ids = array(), $degree_level_ids = array(), $job_experience_ids = array(), $salary_from = 0, $salary_to = 0, $salary_currency = '', $is_featured = -1, $orderBy = 'id', $limit = 10)
     {
         $asc_desc = 'DESC';
         $query = Job::select($this->fields);
-        $query = $this->createQuery($query, $search, $job_titles, $company_ids, $industry_ids, $job_skill_ids, $functional_area_ids, $country_ids, $state_ids, $city_ids, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured);
+        $query = $this->createQuery($query, $search, $job_titles, $company_ids, $industry_ids, $job_skill_ids, $functional_area_ids, $country_ids, $state_ids, $city_ids, $career_level_ids, $job_type_ids,  $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured);
 
         //$query->orderBy('jobs.is_featured', 'DESC');
         $query->orderBy('jobs.id', 'DESC');
@@ -62,16 +60,16 @@ trait FetchJobs
         return $query->paginate($limit);
     }
 
-    public function fetchIdsArray($search = '', $job_titles = array(), $company_ids = array(), $industry_ids = array(), $job_skill_ids = array(), $functional_area_ids = array(), $country_ids = array(), $state_ids = array(), $city_ids = array(), $career_level_ids = array(), $job_type_ids = array(), $job_shift_ids = array(), $gender_ids = array(), $degree_level_ids = array(), $job_experience_ids = array(), $salary_from = 0, $salary_to = 0, $salary_currency = '', $is_featured = -1, $field = 'jobs.id')
+    public function fetchIdsArray($search = '', $job_titles = array(), $company_ids = array(), $industry_ids = array(), $job_skill_ids = array(), $functional_area_ids = array(), $country_ids = array(), $state_ids = array(), $city_ids = array(), $career_level_ids = array(), $job_type_ids = array(), $gender_ids = array(), $degree_level_ids = array(), $job_experience_ids = array(), $salary_from = 0, $salary_to = 0, $salary_currency = '', $is_featured = -1, $field = 'jobs.id')
     {
         $query = Job::select($field);
-        $query = $this->createQuery($query, $search, $job_titles, $company_ids, $industry_ids, $job_skill_ids, $functional_area_ids, $country_ids, $state_ids, $city_ids, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured);
+        $query = $this->createQuery($query, $search, $job_titles, $company_ids, $industry_ids, $job_skill_ids, $functional_area_ids, $country_ids, $state_ids, $city_ids, $career_level_ids, $job_type_ids,  $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured);
 
         $array = $query->pluck($field)->toArray();
         return array_unique($array);
     }
 
-    public function createQuery($query, $search = '', $job_titles = array(), $company_ids = array(), $industry_ids = array(), $job_skill_ids = array(), $functional_area_ids = array(), $country_ids = array(), $state_ids = array(), $city_ids = array(), $career_level_ids = array(), $job_type_ids = array(), $job_shift_ids = array(), $gender_ids = array(), $degree_level_ids = array(), $job_experience_ids = array(), $salary_from = 0, $salary_to = 0, $salary_currency = '', $is_featured = -1)
+    public function createQuery($query, $search = '', $job_titles = array(), $company_ids = array(), $industry_ids = array(), $job_skill_ids = array(), $functional_area_ids = array(), $country_ids = array(), $state_ids = array(), $city_ids = array(), $career_level_ids = array(), $job_type_ids = array(), $gender_ids = array(), $degree_level_ids = array(), $job_experience_ids = array(), $salary_from = 0, $salary_to = 0, $salary_currency = '', $is_featured = -1)
     {
     
        
@@ -129,9 +127,6 @@ trait FetchJobs
         if (isset($job_type_ids[0])) {
             $query->whereIn('jobs.job_type_id', $job_type_ids);
         }
-        if (isset($job_shift_ids[0])) {
-            $query->whereIn('jobs.job_shift_id', $job_shift_ids);
-        }
         if (isset($gender_ids[0])) {
             $query->whereIn('jobs.gender_id', $gender_ids);
         }
@@ -176,7 +171,7 @@ trait FetchJobs
         return array_unique($array);
     }
 
-    private function getSEO($functional_area_ids = array(), $country_ids = array(), $state_ids = array(), $city_ids = array(), $career_level_ids = array(), $job_type_ids = array(), $job_shift_ids = array(), $gender_ids = array(), $degree_level_ids = array(), $job_experience_ids = array())
+    private function getSEO($functional_area_ids = array(), $country_ids = array(), $state_ids = array(), $city_ids = array(), $career_level_ids = array(), $job_type_ids = array(), $gender_ids = array(), $degree_level_ids = array(), $job_experience_ids = array())
     {
         $description = 'Jobs ';
         $keywords = '';
@@ -231,15 +226,6 @@ trait FetchJobs
                 if (null !== $job_type) {
                     $description .= ' ' . $job_type->job_type;
                     $keywords .= $job_type->job_type . ',';
-                }
-            }
-        }
-        if (isset($job_shift_ids[0])) {
-            foreach ($job_shift_ids as $job_shift_id) {
-                $job_shift = JobShift::where('job_shift_id', $job_shift_id)->lang()->first();
-                if (null !== $job_shift) {
-                    $description .= ' ' . $job_shift->job_shift;
-                    $keywords .= $job_shift->job_shift . ',';
                 }
             }
         }

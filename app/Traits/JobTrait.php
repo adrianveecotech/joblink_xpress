@@ -38,7 +38,6 @@ use App\FunctionalArea;
 
 use App\JobType;
 
-use App\JobShift;
 
 use App\Gender;
 
@@ -138,8 +137,6 @@ trait JobTrait
 
         $str .= ' ' . $job->getJobType('job_type');
 
-        $str .= ' ' . $job->getJobShift('job_shift');
-
         $str .= ' ' . $job->getGender('gender');
 
         $str .= ' ' . $job->getDegreeLevel('degree_level');
@@ -220,8 +217,6 @@ trait JobTrait
 
         $jobTypes = DataArrayHelper::defaultJobTypesArray();
 
-        $jobShifts = DataArrayHelper::defaultJobShiftsArray();
-
         $genders = DataArrayHelper::defaultGendersArray();
 
         $jobExperiences = DataArrayHelper::defaultJobExperiencesArray();
@@ -247,8 +242,6 @@ trait JobTrait
             ->with('functionalAreas', $functionalAreas)
 
             ->with('jobTypes', $jobTypes)
-
-            ->with('jobShifts', $jobShifts)
 
             ->with('genders', $genders)
 
@@ -326,8 +319,6 @@ trait JobTrait
 
         $jobTypes = DataArrayHelper::defaultJobTypesArray();
 
-        $jobShifts = DataArrayHelper::defaultJobShiftsArray();
-
         $genders = DataArrayHelper::defaultGendersArray();
 
         $jobExperiences = DataArrayHelper::defaultJobExperiencesArray();
@@ -357,8 +348,6 @@ trait JobTrait
             ->with('functionalAreas', $functionalAreas)
 
             ->with('jobTypes', $jobTypes)
-
-            ->with('jobShifts', $jobShifts)
 
             ->with('genders', $genders)
 
@@ -458,8 +447,6 @@ trait JobTrait
 
         $jobTypes = DataArrayHelper::langJobTypesArray();
 
-        $jobShifts = DataArrayHelper::langJobShiftsArray();
-
         $genders = DataArrayHelper::langGendersArray();
 
         $jobExperiences = DataArrayHelper::langJobExperiencesArray();
@@ -485,8 +472,6 @@ trait JobTrait
             ->with('functionalAreas', $functionalAreas)
 
             ->with('jobTypes', $jobTypes)
-
-            ->with('jobShifts', $jobShifts)
 
             ->with('genders', $genders)
 
@@ -578,8 +563,6 @@ trait JobTrait
 
         $jobTypes = DataArrayHelper::langJobTypesArray();
 
-        $jobShifts = DataArrayHelper::langJobShiftsArray();
-
         $genders = DataArrayHelper::langGendersArray();
 
         $jobExperiences = DataArrayHelper::langJobExperiencesArray();
@@ -607,8 +590,6 @@ trait JobTrait
             ->with('functionalAreas', $functionalAreas)
 
             ->with('jobTypes', $jobTypes)
-
-            ->with('jobShifts', $jobShifts)
 
             ->with('genders', $genders)
 
@@ -691,9 +672,6 @@ trait JobTrait
             }
             if ($field == 'job_type_id') {
                 return DB::table('jobs')->where('job_type_id', '=', $value)->where('is_active', '=', 1)->where('expiry_date', '>',  \Carbon\Carbon::now())->count('id');
-            }
-            if ($field == 'job_shift_id') {
-                return DB::table('jobs')->where('job_shift_id', '=', $value)->where('is_active', '=', 1)->where('expiry_date', '>',  \Carbon\Carbon::now())->count('id');
             }
             if ($field == 'gender_id') {
                 return DB::table('jobs')->where('gender_id', '=', $value)->where('is_active', '=', 1)->where('expiry_date', '>',  \Carbon\Carbon::now())->count('id');

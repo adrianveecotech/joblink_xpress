@@ -67,10 +67,6 @@ $company = $job->getCompany();
                                 <div class="col-md-8 col-xs-7"><span class="permanent">{{$job->getJobType('job_type')}}</span></div>
                             </li>
                             <li class="row">
-                                <div class="col-md-4 col-xs-5">{{__('Shift')}}:</div>
-                                <div class="col-md-8 col-xs-7"><span class="freelance">{{$job->getJobShift('job_shift')}}</span></div>
-                            </li>
-                            <li class="row">
                                 <div class="col-md-4 col-xs-5">{{__('Career Level')}}:</div>
                                 <div class="col-md-8 col-xs-7"><span>{{$job->getCareerLevel('career_level')}}</span></div>
                             </li>
@@ -194,7 +190,6 @@ $company = $job->getCompany();
 										<div class="location"><span>{{$relatedJob->getCity('city')}}</span></div>
                                         <div class="location">
                                             <label class="fulltime">{{$relatedJob->getJobType('job_type')}}</label>
-                                            <label class="partTime">{{$relatedJob->getJobShift('job_shift')}}</label> </div>
                                     </div>
                                     <div class="clearfix"></div>
                                                            

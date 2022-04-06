@@ -135,26 +135,6 @@ class Job extends Model
         }
     }
 
-    public function jobShift()
-    {
-        return $this->belongsTo('App\JobShift', 'job_shift_id', 'job_shift_id');
-    }
-
-    public function getJobShift($field = '')
-    {
-        $jobShift = $this->jobShift()->lang()->first();
-        if (null === $jobShift) {
-            $jobShift = $this->jobShift()->first();
-        }
-        if (null !== $jobShift) {
-            if (!empty($field)) {
-                return $jobShift->$field;
-            } else {
-                return $jobShift;
-            }
-        }
-    }
-
     public function salaryPeriod()
     {
         return $this->belongsTo('App\SalaryPeriod', 'salary_period_id', 'salary_period_id');

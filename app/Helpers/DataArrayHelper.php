@@ -22,7 +22,6 @@ use App\LanguageLevel;
 use App\JobSkill;
 use App\JobExperience;
 use App\JobType;
-use App\JobShift;
 use App\JobTitle;
 use App\Company;
 use App\FaqCategory;
@@ -344,23 +343,6 @@ class DataArrayHelper
         return $array;
     }
 
-    /*     * **************************** */
-
-    public static function defaultJobShiftsArray()
-    {
-        $array = JobShift::select('job_shifts.job_shift', 'job_shifts.job_shift_id')->isDefault()->active()->sorted()->pluck('job_shifts.job_shift', 'job_shifts.job_shift_id')->toArray();
-        return $array;
-    }
-
-    public static function langJobShiftsArray()
-    {
-        $array = JobShift::select('job_shifts.job_shift', 'job_shifts.job_shift_id')->lang()->active()->sorted()->pluck('job_shifts.job_shift', 'job_shifts.job_shift_id')->toArray();
-
-        if ((int) count($array) === 0) {
-            $array = self::defaultJobShiftsArray();
-        }
-        return $array;
-    }
 
     /*     * **************************** */
 

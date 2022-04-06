@@ -100,11 +100,6 @@
         {!! Form::select('job_type_id', ['' => 'Select Job Type']+$jobTypes, null, array('class'=>'form-control', 'id'=>'job_type_id')) !!}
         {!! APFrmErrHelp::showErrors($errors, 'job_type_id') !!}                                       
     </div>
-    <div class="form-group {!! APFrmErrHelp::hasError($errors, 'job_shift_id') !!}" id="job_shift_id_div">
-        {!! Form::label('job_shift_id', 'Job Shift', ['class' => 'bold']) !!}                    
-        {!! Form::select('job_shift_id', ['' => 'Select Job Shift']+$jobShifts, null, array('class'=>'form-control', 'id'=>'job_shift_id')) !!}
-        {!! APFrmErrHelp::showErrors($errors, 'job_shift_id') !!}                                       
-    </div>
     <div class="form-group {!! APFrmErrHelp::hasError($errors, 'num_of_positions') !!}" id="num_of_positions_div">
         {!! Form::label('num_of_positions', 'Positions#', ['class' => 'bold']) !!}                    
         {!! Form::select('num_of_positions', ['' => 'Select Positions#']+MiscHelper::getNumPositions(), null, array('class'=>'form-control', 'id'=>'num_of_positions')) !!}

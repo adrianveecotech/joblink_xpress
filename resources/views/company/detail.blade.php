@@ -189,10 +189,6 @@
 
                                                 title="{{$companyJob->getJobType('job_type')}}">{{$companyJob->getJobType('job_type')}}</label>
 
-                                            <label class="partTime"
-
-                                                title="{{$companyJob->getJobShift('job_shift')}}">{{$companyJob->getJobShift('job_shift')}}</label>
-
                                             - <span>{{$companyJob->getCity('city')}}</span></div>
 
                                     </div>

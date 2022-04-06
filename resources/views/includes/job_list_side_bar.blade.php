@@ -161,30 +161,6 @@
             <span class="text text-primary view_more hide_vm">{{__('View More')}}</span> </div>
         <!-- Jobs By Job Type end --> 
 
-        <!-- Jobs By Job Shift -->
-        <div class="widget">
-            <h4 class="widget-title">{{__('Jobs By Job Shift')}}</h4>
-            <ul class="optionlist view_more_ul">
-                @if(isset($jobShiftIdsArray) && count($jobShiftIdsArray))
-                @foreach($jobShiftIdsArray as $key=>$job_shift_id)
-                @php
-                $jobShift = App\JobShift::where('job_shift_id','=',$job_shift_id)->lang()->active()->first();
-                @endphp
-                @if(null !== $jobShift)
-                @php
-                $checked = (in_array($jobShift->job_shift_id, Request::get('job_shift_id', array())))? 'checked="checked"':'';
-                @endphp
-                <li>
-                    <input type="checkbox" name="job_shift_id[]" id="job_shift_{{$jobShift->job_shift_id}}" value="{{$jobShift->job_shift_id}}" {{$checked}}>
-                    <label for="job_shift_{{$jobShift->job_shift_id}}"></label>
-                    {{$jobShift->job_shift}} <span>{{App\Job::countNumJobs('job_shift_id', $jobShift->job_shift_id)}}</span> </li>
-                @endif
-                @endforeach
-                @endif
-            </ul>
-            <span class="text text-primary view_more hide_vm">{{__('View More')}}</span> </div>
-        <!-- Jobs By Job Shift end --> 
-
         <!-- Jobs By Career Level -->
         <div class="widget">
             <h4 class="widget-title">{{__('Jobs By Career Level')}}</h4>
