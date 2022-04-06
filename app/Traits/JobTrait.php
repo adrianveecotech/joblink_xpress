@@ -174,8 +174,6 @@ trait JobTrait
 
         $job->city_id = $request->input('city_id');
 
-        $job->is_freelance = $request->input('is_freelance');
-
         $job->career_level_id = $request->input('career_level_id');
 
         $job->salary_from = (int) $request->input('salary_from');
@@ -189,8 +187,6 @@ trait JobTrait
         $job->functional_area_id = $request->input('functional_area_id');
 
         $job->job_type_id = $request->input('job_type_id');
-
-        $job->job_shift_id = $request->input('job_shift_id');
 
         $job->num_of_positions = $request->input('num_of_positions');
 

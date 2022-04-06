@@ -11,24 +11,18 @@
             {!! APFrmErrHelp::showErrors($errors, 'title') !!} </div>
     </div>
     <div class="col-md-12">
+        <p>Description</p>
         <div class="formrow {!! APFrmErrHelp::hasError($errors, 'description') !!}"> {!! Form::textarea('description', null, array('class'=>'form-control', 'id'=>'description', 'placeholder'=>__('Job description'))) !!}
             {!! APFrmErrHelp::showErrors($errors, 'description') !!} </div>
     </div>
 	
 	 <div class="col-md-12">
+        <p>Benefits</p>
         <div class="formrow {!! APFrmErrHelp::hasError($errors, 'benefits') !!}"> {!! Form::textarea('benefits', null, array('class'=>'form-control', 'id'=>'benefits', 'placeholder'=>__('Job Benefits'))) !!}
             {!! APFrmErrHelp::showErrors($errors, 'benefits') !!} </div>
     </div>
 	
 	
-    <div class="col-md-12">
-        <div class="formrow {!! APFrmErrHelp::hasError($errors, 'skills') !!}">
-            <?php
-            $skills = old('skills', $jobSkillIds);
-            ?>
-            {!! Form::select('skills[]', $jobSkills, $skills, array('class'=>'form-control select2-multiple', 'id'=>'skills', 'multiple'=>'multiple')) !!}
-            {!! APFrmErrHelp::showErrors($errors, 'skills') !!} </div>
-    </div>
     <div class="col-md-4">
         <div class="formrow {!! APFrmErrHelp::hasError($errors, 'country_id') !!}" id="country_id_div"> {!! Form::select('country_id', ['' => __('Select Country')]+$countries, old('country_id', (isset($job))? $job->country_id:$siteSetting->default_country_id), array('class'=>'form-control', 'id'=>'country_id')) !!}
             {!! APFrmErrHelp::showErrors($errors, 'country_id') !!} </div>
@@ -95,10 +89,6 @@
             {!! APFrmErrHelp::showErrors($errors, 'job_type_id') !!} </div>
     </div>
     <div class="col-md-6">
-        <div class="formrow {!! APFrmErrHelp::hasError($errors, 'job_shift_id') !!}" id="job_shift_id_div"> {!! Form::select('job_shift_id', ['' => __('Select Job Shift')]+$jobShifts, null, array('class'=>'form-control', 'id'=>'job_shift_id')) !!}
-            {!! APFrmErrHelp::showErrors($errors, 'job_shift_id') !!} </div>
-    </div>
-    <div class="col-md-6">
         <div class="formrow {!! APFrmErrHelp::hasError($errors, 'num_of_positions') !!}" id="num_of_positions_div"> {!! Form::select('num_of_positions', ['' => __('Select number of Positions')]+MiscHelper::getNumPositions(), null, array('class'=>'form-control', 'id'=>'num_of_positions')) !!}
             {!! APFrmErrHelp::showErrors($errors, 'num_of_positions') !!} </div>
     </div>
@@ -117,26 +107,6 @@
     <div class="col-md-6">
         <div class="formrow {!! APFrmErrHelp::hasError($errors, 'job_experience_id') !!}" id="job_experience_id_div"> {!! Form::select('job_experience_id', ['' => __('Select Required job experience')]+$jobExperiences, null, array('class'=>'form-control', 'id'=>'job_experience_id')) !!}
             {!! APFrmErrHelp::showErrors($errors, 'job_experience_id') !!} </div>
-    </div>
-    <div class="col-md-6">
-        <div class="formrow {!! APFrmErrHelp::hasError($errors, 'is_freelance') !!}"> {!! Form::label('is_freelance', __('Is Freelance?'), ['class' => 'bold']) !!}
-            <div class="radio-list">
-                <?php
-                $is_freelance_1 = '';
-                $is_freelance_2 = 'checked="checked"';
-                if (old('is_freelance', ((isset($job)) ? $job->is_freelance : 0)) == 1) {
-                    $is_freelance_1 = 'checked="checked"';
-                    $is_freelance_2 = '';
-                }
-                ?>
-                <label class="radio-inline">
-                    <input id="is_freelance_yes" name="is_freelance" type="radio" value="1" {{$is_freelance_1}}>
-                    {{__('Yes')}} </label>
-                <label class="radio-inline">
-                    <input id="is_freelance_no" name="is_freelance" type="radio" value="0" {{$is_freelance_2}}>
-                    {{__('No')}} </label>
-            </div>
-            {!! APFrmErrHelp::showErrors($errors, 'is_freelance') !!} </div>
     </div>
     <div class="col-md-12">
         <div class="formrow">

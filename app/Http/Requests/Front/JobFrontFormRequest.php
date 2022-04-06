@@ -32,7 +32,6 @@ class JobFrontFormRequest extends Request
                     return [
                         "title" => "required|max:180",
                         "description" => "required",
-                        "skills" => "required",
                         "country_id" => "required",
                         "state_id" => "required",
                         "city_id" => "required",
@@ -62,7 +61,6 @@ class JobFrontFormRequest extends Request
         return [
             'title.required' => __('Please enter Job title'),
             'description.required' => __('Please enter Job description'),
-            'skills.required' => __('Please enter Job skills'),
             'country_id.required' => __('Please select Country'),
             'state_id.required' => __('Please select State'),
             'city_id.required' => __('Please select City'),
