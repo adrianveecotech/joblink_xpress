@@ -55,11 +55,7 @@ $company = $job->getCompany();
                             <li class="row">
                                 <div class="col-md-4 col-xs-5">{{__('Location')}}:</div>
                                 <div class="col-md-8 col-xs-7">
-                                    @if((bool)$job->is_freelance)
-                                    <span>Freelance</span>
-                                    @else
                                     <span>{{$job->getLocation()}}</span>
-                                    @endif
                                 </div>
                             </li>
                             <li class="row">

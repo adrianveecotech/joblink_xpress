@@ -128,8 +128,6 @@ trait JobTrait
 
         $str .= $job->getJobSkillsStr();
 
-        $str .= ((bool) $job->is_freelance) ? ' freelance remote work from home multiple cities' : '';
-
         $str .= ' ' . $job->getCareerLevel('career_level');
 
         $str .= ((bool) $job->hide_salary === false) ? ' ' . $job->salary_from . ' ' . $job->salary_to : '';

@@ -44,26 +44,7 @@
         </span>
         {!! APFrmErrHelp::showErrors($errors, 'city_id') !!}                                       
     </div>
-    <div class="form-group {!! APFrmErrHelp::hasError($errors, 'is_freelance') !!}">
-        {!! Form::label('is_freelance', 'Is Freelance?', ['class' => 'bold']) !!}
-        <div class="radio-list">
-            <?php
-            $is_freelance_1 = '';
-            $is_freelance_2 = 'checked="checked"';
-            if (old('is_freelance', ((isset($job)) ? $job->is_freelance : 0)) == 1) {
-                $is_freelance_1 = 'checked="checked"';
-                $is_freelance_2 = '';
-            }
-            ?>
-            <label class="radio-inline">
-                <input id="is_freelance_yes" name="is_freelance" type="radio" value="1" {{$is_freelance_1}}>
-                Yes </label>
-            <label class="radio-inline">
-                <input id="is_freelance_no" name="is_freelance" type="radio" value="0" {{$is_freelance_2}}>
-                No </label>
-        </div>
-        {!! APFrmErrHelp::showErrors($errors, 'is_freelance') !!}
-    </div>
+
     <div class="form-group {!! APFrmErrHelp::hasError($errors, 'career_level_id') !!}" id="career_level_id_div">
         {!! Form::label('career_level_id', 'Career level', ['class' => 'bold']) !!}                    
         {!! Form::select('career_level_id', ['' => 'Select Career level']+$careerLevels, null, array('class'=>'form-control', 'id'=>'career_level_id')) !!}
