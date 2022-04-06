@@ -124,15 +124,6 @@ $company = $job->getCompany();
                     </div>
                 </div>
 				
-				<div class="job-header">
-                    <div class="contentbox">                        
-                        <h3><i class="fa fa-puzzle-piece" aria-hidden="true"></i> {{__('Skills Required')}}</h3>
-                        <ul class="skillslist">
-                            {!!$job->getJobSkillsList()!!}
-                        </ul>
-                    </div>
-                </div>
-				
 				
                 <!-- Job Description end --> 
 
