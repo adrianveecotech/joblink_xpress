@@ -77,7 +77,6 @@
         @include('admin/shared/side_bars/job_experience') 
         @include('admin/shared/side_bars/job_skill') 
         @include('admin/shared/side_bars/job_type') 
-        @include('admin/shared/side_bars/job_shift') 
         @include('admin/shared/side_bars/degree_level') 
         @include('admin/shared/side_bars/degree_type') 
         @include('admin/shared/side_bars/major_subject')  
