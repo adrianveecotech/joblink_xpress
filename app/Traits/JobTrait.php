@@ -429,7 +429,7 @@ trait JobTrait
 
         if ((bool)$company->is_active === false) {
 
-            flash(__('Your account is inactive contact site admin to activate it'))->error();
+            flash(__('Your account is inactive, Please wait admin to activate it or contact admin for more info.'))->error();
 
             return \Redirect::route('company.home');
 

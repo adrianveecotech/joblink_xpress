@@ -248,7 +248,7 @@ class JobController extends Controller
         $job = Job::where('slug', 'like', $job_slug)->first();
 
         if ((bool)$user->is_active === false) {
-            flash(__('Your account is inactive contact site admin to activate it'))->error();
+            flash(__('Your account is inactive, Please wait admin to activate it or contact admin for more info.'))->error();
             return \Redirect::route('job.detail', $job_slug);
             exit;
         }

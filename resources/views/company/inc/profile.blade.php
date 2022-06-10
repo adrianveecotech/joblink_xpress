@@ -130,24 +130,6 @@
             {!! APFrmErrHelp::showErrors($errors, 'instagram') !!} </div>
     </div>
     <div class="col-md-4">
-        <div class="formrow {!! APFrmErrHelp::hasError($errors, 'linkedin') !!}">
-			<label>{{__('LinkedIn')}}</label>
-			{!! Form::text('linkedin', null, array('class'=>'form-control', 'id'=>'linkedin', 'placeholder'=>__('Linkedin'))) !!}
-            {!! APFrmErrHelp::showErrors($errors, 'linkedin') !!} </div>
-    </div>
-    <div class="col-md-4">
-        <div class="formrow {!! APFrmErrHelp::hasError($errors, 'google_plus') !!}">
-			<label>{{__('Google Plus')}}</label>
-			{!! Form::text('google_plus', null, array('class'=>'form-control', 'id'=>'google_plus', 'placeholder'=>__('Google+'))) !!}
-            {!! APFrmErrHelp::showErrors($errors, 'google_plus') !!} </div>
-    </div>
-    <div class="col-md-4">
-        <div class="formrow {!! APFrmErrHelp::hasError($errors, 'pinterest') !!}">
-			<label>{{__('Pinterest')}}</label>
-			{!! Form::text('pinterest', null, array('class'=>'form-control', 'id'=>'pinterest', 'placeholder'=>__('Pinterest'))) !!}
-            {!! APFrmErrHelp::showErrors($errors, 'pinterest') !!} </div>
-    </div>
-    <div class="col-md-4">
         <div class="formrow {!! APFrmErrHelp::hasError($errors, 'country_id') !!}">
 			<label>{{__('Country')}}</label>
 			{!! Form::select('country_id', ['' => __('Select Country')]+$countries, old('country_id', (isset($company))? $company->country_id:$siteSetting->default_country_id), array('class'=>'form-control', 'id'=>'country_id')) !!}
@@ -165,7 +147,7 @@
     </div>
     <div class="col-md-12">
         <div class="formrow {!! APFrmErrHelp::hasError($errors, 'map') !!}">
-			<label>{{__('Google Map Iframe')}}</label>
+			<label>{{__('Address for Google Map')}}</label>
 			{!! Form::textarea('map', null, array('class'=>'form-control', 'id'=>'map', 'placeholder'=>__('Google Map'))) !!}
             {!! APFrmErrHelp::showErrors($errors, 'map') !!} </div>
     </div>

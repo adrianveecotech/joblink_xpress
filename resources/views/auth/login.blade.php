@@ -17,8 +17,8 @@
                             <?php
                             $c_or_e = old('candidate_or_employer', 'candidate');
                             ?>
-                            <li class="nav-item"><a class="nav-link {{($c_or_e == 'candidate')? 'active':''}}" data-toggle="tab" href="#candidate" aria-expanded="true">{{__('Candidate')}}</a></li>
-                            <li class="nav-item"><a class="nav-link {{($c_or_e == 'employer')? 'active':''}}" data-toggle="tab" href="#employer" aria-expanded="false">{{__('Employer')}}</a></li>
+                            <li class="nav-item"><a id="tab_candidate" class="nav-link {{($c_or_e == 'candidate')? 'active':''}}" data-toggle="tab" href="#candidate" aria-expanded="true">{{__('Candidate')}}</a></li>
+                            <li class="nav-item"><a id="tab_employer" class="nav-link {{($c_or_e == 'employer')? 'active':''}}" data-toggle="tab" href="#employer" aria-expanded="false">{{__('Employer')}}</a></li>
                         </ul>
                     </div>
 					
@@ -103,3 +103,14 @@
 </div>
 @include('includes.footer')
 @endsection
+
+@push('scripts') 
+<script type="text/javascript">
+    $( document ).ready(function() {
+        if(window.location.hash == '#employer') {
+            $('#tab_employer').trigger("click");
+            window.scrollTo(0, 0);
+        }
+    });
+</script>
+@endpush            

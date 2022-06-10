@@ -290,7 +290,7 @@
                 <div class="job-header">
 
                     <div class="jobdetail">
-                       {!! $company->map !!}
+                    <iframe src="https://www.google.com/maps?q=<?php echo $company->map ?>&output=embed"></iframe>
                     </div>
 
                 </div>

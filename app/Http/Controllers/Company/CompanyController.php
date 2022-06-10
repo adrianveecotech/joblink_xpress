@@ -114,9 +114,6 @@ class CompanyController extends Controller
         $company->facebook = $request->input('facebook');
         $company->twitter = $request->input('twitter');
         $company->instagram = $request->input('instagram');
-        $company->linkedin = $request->input('linkedin');
-        $company->google_plus = $request->input('google_plus');
-        $company->pinterest = $request->input('pinterest');
         $company->country_id = $request->input('country_id');
         $company->state_id = $request->input('state_id');
         $company->city_id = $request->input('city_id');
