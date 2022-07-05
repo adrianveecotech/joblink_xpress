@@ -70,7 +70,7 @@ class User extends Authenticatable
         $cv = ProfileCv::where('user_id', '=', $this->id)->where('is_default', '=', 1)->first();
 
         if (null === $cv)
-            $cv = ProfileCv::where('user_id', '=', $this->id)->first();
+            $cv = ProfileCv::where('user_id', '=', $this->id)->orderBy('created_at','desc')->first();
 
         return $cv;
     }
