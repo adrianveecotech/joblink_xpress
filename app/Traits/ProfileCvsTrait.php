@@ -104,7 +104,11 @@ trait ProfileCvsTrait
         if ($request->hasFile('cv_file') && $profileCv->id > 0) {
             $this->deleteCv($profileCv->id);
         }
-        $profileCv->cv_file = $this->uploadCvFile($request);
+
+        if ($request->hasFile('cv_file'))
+        {
+            $profileCv->cv_file = $this->uploadCvFile($request);
+        }
 
         return $profileCv;
     }
